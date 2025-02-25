@@ -17,7 +17,7 @@ function App() {
         <header className="flex items-center justify-between px-8 py-4 bg-white shadow-sm sticky top-0 z-50">
           <div className="logo flex items-center">
             <img
-              src="src/assets/images/iitjammu-logo.png"
+              src="/images/iitjammu-logo.png"
               alt="IIT Jammu Logo"
               className="h-12 w-auto"
             />
@@ -83,7 +83,7 @@ function App() {
                         <div className="img-wrapper h-48 overflow-hidden">
                           <img
                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                            src="src/assets/images/bg-depressed.jpg"
+                            src="/images/bg-depressed.jpg"
                             alt="Mental Health Support"
                           />
                         </div>
@@ -144,7 +144,7 @@ function App() {
                         <div className="img-wrapper h-48 overflow-hidden">
                           <img
                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                            src="src/assets/images/bg-academic.jpg"
+                            src="/images/bg-academic.jpg"
                             alt="Academic Support"
                           />
                         </div>
@@ -206,7 +206,7 @@ function App() {
                         <div className="img-wrapper h-48 overflow-hidden">
                           <img
                             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                            src="src/assets/images/consultation.jpg"
+                            src="/images/consultation.jpg"
                             alt="Other Healthcare Services"
                           />
                         </div>
@@ -291,7 +291,7 @@ function App() {
                           <div className="aspect-w-3 aspect-h-4 overflow-hidden">
                             <img
                               className="w-full object-cover object-center"
-                              src="src/assets/images/karunika.jpg"
+                              src="/images/karunika.jpg"
                               alt="Dr. Karunika"
                             />
                           </div>
@@ -343,7 +343,7 @@ function App() {
                           <div className="aspect-w-3 aspect-h-4 overflow-hidden">
                             <img
                               className="w-full object-cover object-center"
-                              src="src/assets/images/vikram.jpg"
+                              src="/images/vikram.jpg"
                               alt="Dr. Vikram"
                             />
                           </div>
@@ -395,7 +395,7 @@ function App() {
                           <div className="aspect-w-3 aspect-h-4 overflow-hidden">
                             <img
                               className="w-full object-cover object-center"
-                              src="src/assets/images/priya.jpg"
+                              src="/images/priya.jpg"
                               alt="Dr. Priya"
                             />
                           </div>
