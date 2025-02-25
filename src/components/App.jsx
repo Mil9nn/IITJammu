@@ -471,25 +471,25 @@ function App() {
                     <div className="emergencyContacts flex flex-col justify-center gap-5 border-r-2 border-white px-5">
                       <h4 className="font-semibold text-md text-white">Emergency Contacts</h4>
                       <p className="flex items-center gap-1.5">
-                        <img src="src/assets/svgs/phone.svg" alt="Phone Icon" />
+                        <img src="/svgs/phone.svg" alt="Phone Icon" />
                         <a href="tel:+914422579999" className="hover:text-white">
                           Security : +91 44 2257 9999
                         </a>
                       </p>
                       <p className="flex items-center gap-1.5">
-                        <img src="src/assets/svgs/phone.svg" alt="Phone Icon" />
+                        <img src="/svgs/phone.svg" alt="Phone Icon" />
                         <a href="tel:+91 44 2257 8330" className="hover:text-white">
                           Hospital : +91 44 2257 8330
                         </a>
                       </p>
                       <p className="flex items-center gap-1.5">
-                        <img src="src/assets/svgs/phone.svg" alt="Phone Icon" />
+                        <img src="/svgs/phone.svg" alt="Phone Icon" />
                         <a href="tel:+91 44 2257 5555" className="hover:text-white">
                           Counselling : +91 44 2257 5555
                         </a>
                       </p>
                       <p className="flex items-center gap-1.5">
-                        <img src="src/assets/svgs/phone.svg" alt="Phone Icon" />
+                        <img src="/svgs/phone.svg" alt="Phone Icon" />
                         <a href="tel:+914422578333/8888" className="hover:text-white">
                           Ambulance : +91 44 2257 8333/8888
                         </a>
