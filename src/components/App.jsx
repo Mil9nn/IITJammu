@@ -9,6 +9,7 @@ import Resources from '../pages/Resources';
 import Appointments from '../pages/Appointments';
 import FAQs from '../pages/FAQs';
 import ContactUs from '../pages/ContactUs';
+import Footer from "../components/Footer";
 
 function App() {
   return (
@@ -449,54 +450,12 @@ function App() {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        Helpline: +91 1234 567 890
+                        Helpline: 1-800-891-4416
                       </a>
                     </div>
                   </div>
                 </div>
-
-                <footer className="bg-[#003f87] p-5">
-                  <div className="flex items-start gap-15 mx-20 text-[#a0b7d2]">
-                    <div className="quickLinks flex flex-col justify-center gap-5 border-r-2 border-white px-5">
-                      <h4 className="font-semibold text-md text-white">Quick Links</h4>
-                      <a className="text-sm hover:text-white transition-all" href="#">Anti-Ragging</a>
-                      <a className="text-sm hover:text-white transition-all" href="#">Hall Bookings</a>
-                      <a className="text-sm hover:text-white transition-all" href="">LED Displays</a>
-                      <a className="text-sm hover:text-white transition-all" href="">Student Forms</a>
-                      <a className="text-sm hover:text-white transition-all" href="">Student Policies</a>
-                      <a className="text-sm hover:text-white transition-all" href="">Temporary Accomm.</a>
-                      <a className="text-sm hover:text-white transition-all" href="">Taramani Guest House</a>
-                    </div>
-
-                    <div className="emergencyContacts flex flex-col justify-center gap-5 border-r-2 border-white px-5">
-                      <h4 className="font-semibold text-md text-white">Emergency Contacts</h4>
-                      <p className="flex items-center gap-1.5">
-                        <img src="/svgs/phone.svg" alt="Phone Icon" />
-                        <a href="tel:+914422579999" className="hover:text-white">
-                          Security : +91 44 2257 9999
-                        </a>
-                      </p>
-                      <p className="flex items-center gap-1.5">
-                        <img src="/svgs/phone.svg" alt="Phone Icon" />
-                        <a href="tel:+91 44 2257 8330" className="hover:text-white">
-                          Hospital : +91 44 2257 8330
-                        </a>
-                      </p>
-                      <p className="flex items-center gap-1.5">
-                        <img src="/svgs/phone.svg" alt="Phone Icon" />
-                        <a href="tel:+91 44 2257 5555" className="hover:text-white">
-                          Counselling : +91 44 2257 5555
-                        </a>
-                      </p>
-                      <p className="flex items-center gap-1.5">
-                        <img src="/svgs/phone.svg" alt="Phone Icon" />
-                        <a href="tel:+914422578333/8888" className="hover:text-white">
-                          Ambulance : +91 44 2257 8333/8888
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </footer>
+                <Footer />
               </>
             }
           />
