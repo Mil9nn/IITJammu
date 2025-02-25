@@ -1,11 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Header from "./Header";
-import Carousel from "./Carousel";
 import Hero from '../pages/Hero';
-import Home from '../pages/Home';
 import AboutUs from '../pages/AboutUs';
-import Services from '../pages/Services';
 import Resources from '../pages/Resources';
 import Appointments from '../pages/Appointments';
 import FAQs from '../pages/FAQs';
@@ -287,7 +284,7 @@ function App() {
                           </div>
 
                           <div className="mt-6">
-                            <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors">
+                            <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors cursor-pointer">
                               Book Appointment
                             </button>
                           </div>
@@ -339,7 +336,7 @@ function App() {
                           </div>
 
                           <div className="mt-6">
-                            <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors">
+                            <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors cursor-pointer">
                               Book Appointment
                             </button>
                           </div>
@@ -391,7 +388,7 @@ function App() {
                           </div>
 
                           <div className="mt-6">
-                            <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors">
+                            <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition- cursor-pointer">
                               Book Appointment
                             </button>
                           </div>
@@ -418,7 +415,6 @@ function App() {
 
           {/* Other Routes */}
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/services" element={<Services />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/faqs" element={<FAQs />} />

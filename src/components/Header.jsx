@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -6,14 +7,6 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  // This component assumes you're using react-router-dom for Link
-  // If you're using another routing library, replace the Link component accordingly
-  const Link = ({ to, className, children }) => (
-    <a href={to} className={className}>
-      {children}
-    </a>
-  );
 
   return (
     <header className="flex items-center justify-between px-8 py-4 bg-white shadow-sm sticky top-0 z-50">
@@ -37,9 +30,6 @@ const Header = () => {
           </li>
           <li>
             <Link to="/about-us" className="hover:text-[#0062cc] hover:border-b-2 border-[#0062cc] pb-1 transition-all duration-200">About Us</Link>
-          </li>
-          <li>
-            <Link to="/services" className="hover:text-[#0062cc] hover:border-b-2 border-[#0062cc] pb-1 transition-all duration-200">Services</Link>
           </li>
           <li>
             <Link to="/resources" className="hover:text-[#0062cc] hover:border-b-2 border-[#0062cc] pb-1 transition-all duration-200">Resources</Link>
@@ -83,9 +73,6 @@ const Header = () => {
               </li>
               <li>
                 <Link to="/about-us" className="block hover:text-[#0062cc] transition-colors duration-200">About Us</Link>
-              </li>
-              <li>
-                <Link to="/services" className="block hover:text-[#0062cc] transition-colors duration-200">Services</Link>
               </li>
               <li>
                 <Link to="/resources" className="block hover:text-[#0062cc] transition-colors duration-200">Resources</Link>
