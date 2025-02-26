@@ -42,9 +42,9 @@ const EnhancedFooter = () => {
                         </h3>
                         <ul className="space-y-3">
                             {[
-                                { title: 'Security', number: '+91 44 2257 9999' },
+                                { title: 'Security', number: '+91 0191 257 0697' },
                                 { title: 'Hospital', number: '+91 44 2257 8330' },
-                                { title: 'Counselling', number: '+91 44 2257 5555' },
+                                { title: 'Counselling', number: '+91 0191 257 0730' },
                                 { title: 'Ambulance', number: '+91 44 2257 8333/8888' }
                             ].map((contact, index) => (
                                 <li key={index} className="flex items-center group">

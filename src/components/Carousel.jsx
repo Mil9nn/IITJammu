@@ -7,7 +7,7 @@ const Carousel = () => {
   // Sample images for the carousel
   const images = [
     {
-      src: "/api/placeholder/1200/500",
+      src: "/images/health-center.jpg",
       alt: "Health Center Building",
       caption: "IIT Jammu Health Center"
     },

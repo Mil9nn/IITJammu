@@ -21,24 +21,24 @@ const EnhancedHeroSection = () => {
             <div className="relative h-64 md:h-80 lg:h-96 bg-gray-200">
               <Carousel />
             </div>
-            
+
             {/* Quick access buttons below carousel */}
             <div className="grid grid-cols-3 gap-4 p-4 bg-white">
-              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all">
+              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
                   <span className="text-[#003f87]">📅</span>
                 </div>
                 <span className="text-sm font-medium text-gray-700">Book Appointment</span>
               </button>
-              
-              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all">
+
+              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
                   <span className="text-[#003f87]">🏥</span>
                 </div>
                 <span className="text-sm font-medium text-gray-700">Medical Services</span>
               </button>
-              
-              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all">
+
+              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
                   <span className="text-[#003f87]">🧘</span>
                 </div>
@@ -62,19 +62,19 @@ const EnhancedHeroSection = () => {
               {[1, 2, 3, 4].map((item) => (
                 <div key={item} className="notification group w-full flex flex-col gap-1 mb-4 p-3 border-b border-gray-100 hover:bg-blue-50 rounded-lg transition-all cursor-pointer">
                   <p className="text-[#004088] font-medium">
-                    {item === 1 ? "New mental health workshop scheduled next week" : 
-                     item === 2 ? "COVID-19 booster shots now available at health center" :
-                     item === 3 ? "Yoga classes every Wednesday at Student Activity Center" :
-                     "Nutritionist consultation slots open for booking"}
+                    {item === 1 ? "New mental health workshop scheduled next week" :
+                      item === 2 ? "COVID-19 booster shots now available at health center" :
+                        item === 3 ? "Yoga classes every Wednesday at Student Activity Center" :
+                          "Nutritionist consultation slots open for booking"}
                   </p>
                   <p className="flex items-center gap-1 text-gray-400 text-sm ml-1">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
-                    <span>Published: {item === 1 ? "21-02-2025" : 
-                                       item === 2 ? "18-02-2025" : 
-                                       item === 3 ? "15-02-2025" : 
-                                       "10-02-2025"}</span>
+                    <span>Published: {item === 1 ? "21-02-2025" :
+                      item === 2 ? "18-02-2025" :
+                        item === 3 ? "15-02-2025" :
+                          "10-02-2025"}</span>
                   </p>
                 </div>
               ))}
@@ -99,9 +99,9 @@ const EnhancedHeroSection = () => {
               </p>
             </div>
             <div className="flex gap-4">
-              <button className="px-5 py-3 rounded-full bg-white text-[#003f87] font-bold hover:bg-blue-50 cursor-pointer transition-all shadow-md">
-                Emergency: 1800-123-4567
-              </button>
+              <a href="tel:01912571111" className="px-5 py-3 rounded-full bg-white text-[#003f87] font-bold hover:bg-blue-50 cursor-pointer transition-all shadow-md">
+                Emergency: 0191-257-1111
+              </a>
               <button className="px-5 py-3 rounded-full bg-[#00a8ff] text-white font-bold hover:bg-[#0098e5] cursor-pointer transition-all shadow-md">
                 Contact Us
               </button>
