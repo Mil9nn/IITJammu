@@ -1,7 +1,6 @@
-import React from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Carousel = () => {
   // Sample images for the carousel
@@ -9,23 +8,23 @@ const Carousel = () => {
     {
       src: "/images/health-center.jpg",
       alt: "Health Center Building",
-      caption: "IIT Jammu Health Center"
+      caption: "IIT Jammu Health Center",
     },
     {
-      src: "/api/placeholder/1200/500", 
+      src: "/api/placeholder/1200/500",
       alt: "Medical Staff",
-      caption: "Our Dedicated Healthcare Team"
+      caption: "Our Dedicated Healthcare Team",
     },
     {
       src: "/api/placeholder/1200/500",
       alt: "Wellness Workshop",
-      caption: "Student Wellness Programs"
+      caption: "Student Wellness Programs",
     },
     {
       src: "/api/placeholder/1200/500",
       alt: "Medical Equipment",
-      caption: "State-of-the-art Medical Facilities"
-    }
+      caption: "State-of-the-art Medical Facilities",
+    },
   ];
 
   // Settings for the carousel
@@ -43,10 +42,10 @@ const Carousel = () => {
       {
         breakpoint: 768,
         settings: {
-          arrows: false
-        }
-      }
-    ]
+          arrows: false,
+        },
+      },
+    ],
   };
 
   return (
@@ -54,15 +53,9 @@ const Carousel = () => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index} className="relative">
-            <img 
-              src={image.src} 
-              alt={image.alt} 
-              className="w-full h-64 md:h-80 lg:h-96 object-cover"
-            />
+            <img src={image.src} alt={image.alt} className="w-full h-64 md:h-80 lg:h-96 object-cover" />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
-              <h3 className="text-white text-lg md:text-xl font-semibold">
-                {image.caption}
-              </h3>
+              <h3 className="text-white text-lg md:text-xl font-semibold">{image.caption}</h3>
             </div>
           </div>
         ))}

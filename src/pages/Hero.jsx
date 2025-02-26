@@ -1,4 +1,3 @@
-import React from 'react';
 import Carousel from '../components/Carousel';
 
 const EnhancedHeroSection = () => {
@@ -95,7 +94,7 @@ const EnhancedHeroSection = () => {
             <div className="text-white mb-4 md:mb-0 text-center md:text-left">
               <h3 className="font-bold text-xl mb-2">Need Health Support?</h3>
               <p className="text-blue-100 max-w-lg">
-                Our healthcare professionals are here to support you 24/7. Don't hesitate to reach out for any concerns.
+                Our healthcare professionals are here to support you 24/7. Don&apos;t hesitate to reach out for any concerns.
               </p>
             </div>
             <div className="flex gap-4">

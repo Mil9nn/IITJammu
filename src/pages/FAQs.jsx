@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const HealthAndCounselingServices = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -170,7 +170,7 @@ const faqData = [
     question: "What should I do if I'm experiencing a mental health crisis?",
     answer: (
       <div>
-        <p>If you're experiencing a mental health crisis:</p>
+        <p>If you&apos;re experiencing a mental health crisis:</p>
         <ol>
           <li>Call the 24/7 Crisis Helpline: 0191-XXX-XXXX</li>
           <li>Approach your hostel warden or faculty advisor</li>
