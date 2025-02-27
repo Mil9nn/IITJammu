@@ -5,7 +5,7 @@ function AboutUs() {
       <div className="bg-gradient-to-r from-blue-50 to-blue-100 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#003f87] mb-6">About Our Healthcare Center</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-[#003f87] mb-6">About Our Health and Counseling Center</h1>
             <p className="text-xl text-gray-700 mb-8">Dedicated to supporting the health and wellbeing of the entire IIT Jammu community</p>
             <div className="flex justify-center">
               <a href="/appointments" className="inline-flex items-center px-6 py-3 bg-[#003f87] text-white font-semibold rounded-full hover:bg-[#00326d] transition-colors shadow-md mr-4">
@@ -27,7 +27,7 @@ function AboutUs() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0 md:pr-12">
-              <img src="/images/mission.jpg" alt="Healthcare professionals in a meeting" className="rounded-xl shadow-lg w-full" />
+              <img src="/images/mission.webp" alt="Healthcare professionals in a meeting" className="rounded-xl shadow-lg w-full" />
             </div>
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold text-[#003f87] mb-6">Our Mission</h2>
@@ -86,32 +86,32 @@ function AboutUs() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Counsellor 1 - Dr. Karunika */}
+            {/* Counsellor 1 - Himanshi */}
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="relative">
                 <div className="aspect-w-3 aspect-h-4 overflow-hidden">
-                  <img className="w-full object-cover object-center" src="/images/karunika.jpg" alt="Dr. Karunika" />
+                  <img className="w-full object-cover object-center" src="images/karunika.webp" alt="Himanshi Singh" />
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Medical Doctor</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Clinical Psychologist</span>
                 </div>
               </div>
 
               <div className="p-6">
-                <h4 className="font-bold text-xl text-gray-800 mb-2">Dr. Karunika</h4>
-                <p className="text-gray-500 text-sm mb-2">Medical Health Professional</p>
+                <h4 className="font-bold text-xl text-gray-800 mb-2">Himanshi Singh</h4>
+                <p className="text-gray-500 text-sm mb-2">RCI Licensed Clinical Psychologist</p>
 
                 <div className="border-t border-gray-100 my-4"></div>
 
-                <p className="text-gray-600 mb-6">MBBS, MD, PGDHHM, Diploma in Ultrasonography with over 10 years of experience in the medical field.</p>
+                <p className="text-gray-600 mb-6">M.Phil in Clinical Psychology and experience at premier institutions like AIIMS, New Delhi. Specializes in psychological assessments and therapies for depression, anxiety, OCD, trauma, substance use, and relationship issues.</p>
 
                 <h5 className="font-medium text-gray-700 mb-3">Contact Information:</h5>
                 <div className="space-y-2">
-                  <a href="mailto:karunika.sharma@iitjammu.ac.in" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+                  <a href="mailto:himanshi.singh@iitjammu.ac.in" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    karunika.sharma@iitjammu.ac.in
+                    himanshi.singh@iitjammu.ac.in
                   </a>
 
                   <a href="tel:+919596745001" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
@@ -123,42 +123,44 @@ function AboutUs() {
                         d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                       />
                     </svg>
-                    +91 95967 45001
+                    +91 1234567891
                   </a>
                 </div>
 
                 <div className="mt-6">
-                  <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors">Book Appointment</button>
+                  <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors cursor-pointer">Book Appointment</button>
                 </div>
               </div>
             </div>
 
-            {/* Counsellor 2 - Dr. Vikram */}
+            {/* Counsellor 2 - Nandita */}
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="relative">
                 <div className="aspect-w-3 aspect-h-4 overflow-hidden">
-                  <img className="w-full object-cover object-center" src="/images/vikram.jpg" alt="Dr. Vikram" />
+                  <img className="w-full object-cover object-center" src="/images/nandita.webp" alt=""  />
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">General Physician</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Educational Psychologist</span>
                 </div>
               </div>
 
               <div className="p-6">
-                <h4 className="font-bold text-xl text-gray-800 mb-2">Dr. Vikram Singh</h4>
-                <p className="text-gray-500 text-sm mb-2">General Medical Officer</p>
+                <h4 className="font-bold text-xl text-gray-800 mb-2">Nandita Sharma</h4>
+                <p className="text-gray-500 text-sm mb-2">RCI Licensed Educational Psychologist</p>
 
                 <div className="border-t border-gray-100 my-4"></div>
 
-                <p className="text-gray-600 mb-6">Working at IIT Jammu since 2022, a passionate and dedicated medical professional with GMC accreditation and 2.5 years experience in healthcare.</p>
+                <p className="text-gray-600 mb-6">
+                  Extensive experience in academic research and practice across medical institutions, NGOs, and schools. Specializing in stress, self-esteem, relationship issues, addiction, trauma, LGBTQIA+ concerns, anger, and procrastination.
+                </p>
 
                 <h5 className="font-medium text-gray-700 mb-3">Contact Information:</h5>
                 <div className="space-y-2">
-                  <a href="mailto:medical.gdmo3@iitjammu.ac.in" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
+                  <a href="mailto:nandita.sharma@iitjammu.ac.in" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
-                    medical.gdmo3@iitjammu.ac.in
+                    nandita.sharma@iitjammu.ac.in
                   </a>
 
                   <a href="tel:+919906016244" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
@@ -170,59 +172,12 @@ function AboutUs() {
                         d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                       />
                     </svg>
-                    +91 99060 16244
+                    +91 1234567891
                   </a>
                 </div>
 
                 <div className="mt-6">
-                  <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors">Book Appointment</button>
-                </div>
-              </div>
-            </div>
-
-            {/* Counsellor 3 - Dr. Priya */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
-              <div className="relative">
-                <div className="aspect-w-3 aspect-h-4 overflow-hidden">
-                  <img className="w-full object-cover object-center" src="/images/priya.jpg" alt="Dr. Priya" />
-                </div>
-                <div className="absolute top-4 right-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Medical Doctor</span>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h4 className="font-bold text-xl text-gray-800 mb-2">Dr. Priya</h4>
-                <p className="text-gray-500 text-sm mb-2">Medical Health Professional</p>
-
-                <div className="border-t border-gray-100 my-4"></div>
-
-                <p className="text-gray-600 mb-6">MBBS, MD, PGDHHM, Diploma in Ultrasonography with over 10 years of experience in the medical field.</p>
-
-                <h5 className="font-medium text-gray-700 mb-3">Contact Information:</h5>
-                <div className="space-y-2">
-                  <a href="mailto:medical.gdmo@iitjammu.ac.in" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    medical.gdmo@iitjammu.ac.in
-                  </a>
-
-                  <a href="tel:+917006466731" className="flex items-center text-gray-600 hover:text-blue-600 transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-blue-500 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                      />
-                    </svg>
-                    +91 70064 66731
-                  </a>
-                </div>
-
-                <div className="mt-6">
-                  <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors">Book Appointment</button>
+                  <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors cursor-pointer">Book Appointment</button>
                 </div>
               </div>
             </div>
@@ -251,7 +206,7 @@ function AboutUs() {
             {/* Facility 1 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="h-48 overflow-hidden">
-                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/consultation-room.jpg" alt="Consultation Rooms" />
+                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/consultation-room.webp" alt="Consultation Rooms" />
               </div>
               <div className="p-6 flex-grow">
                 <div className="flex items-center mb-3">
@@ -269,7 +224,7 @@ function AboutUs() {
             {/* Facility 2 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="h-48 overflow-hidden">
-                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/emergency-care.jpg" alt="Emergency Care Unit" />
+                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/emergency-care.webp" alt="Emergency Care Unit" />
               </div>
               <div className="p-6 flex-grow">
                 <div className="flex items-center mb-3">
@@ -292,7 +247,7 @@ function AboutUs() {
             {/* Facility 3 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="h-48 overflow-hidden">
-                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/group-therapy.jpg" alt="Group Therapy Room" />
+                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/group-therapy.webp" alt="Group Therapy Room"  />
               </div>
               <div className="p-6 flex-grow">
                 <div className="flex items-center mb-3">
@@ -317,7 +272,7 @@ function AboutUs() {
             {/* Facility 4 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="h-48 overflow-hidden">
-                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/pharmacy.jpg" alt="Pharmacy" />
+                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/pharmacy.webp" alt="Pharmacy" />
               </div>
               <div className="p-6 flex-grow">
                 <div className="flex items-center mb-3">
@@ -340,7 +295,7 @@ function AboutUs() {
             {/* Facility 5 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="h-48 overflow-hidden">
-                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/telehealth.jpg" alt="Telehealth Services" />
+                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/telehealth.webp" alt="Telehealth Services" />
               </div>
               <div className="p-6 flex-grow">
                 <div className="flex items-center mb-3">

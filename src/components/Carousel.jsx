@@ -11,17 +11,17 @@ const Carousel = () => {
       caption: "IIT Jammu Health Center",
     },
     {
-      src: "/api/placeholder/1200/500",
+      src: "/images/medical-staff.jpg",
       alt: "Medical Staff",
       caption: "Our Dedicated Healthcare Team",
     },
     {
-      src: "/api/placeholder/1200/500",
+      src: "/images/wellness-workshop.jpg",
       alt: "Wellness Workshop",
       caption: "Student Wellness Programs",
     },
     {
-      src: "/api/placeholder/1200/500",
+      src: "/images/medical-equipment.jpg",
       alt: "Medical Equipment",
       caption: "State-of-the-art Medical Facilities",
     },

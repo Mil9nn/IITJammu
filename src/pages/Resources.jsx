@@ -34,25 +34,25 @@ const MentalHealthResources = () => {
   const resources = {
     conditions: [
       {
-        imgSrc: '/images/anxiety-thumbnail.jpg',
+        imgSrc: '/images/anxiety-thumbnail.webp',
         title: 'Understanding Anxiety',
         description: 'Learn about symptoms, causes, and treatment options for anxiety disorders.',
         videoLink: 'https://www.youtube.com/watch?v=U9ml2mmfMfM'
       },
       {
-        imgSrc: '/images/depression-thumbnail.jpg',
+        imgSrc: '/images/depression-thumbnail.webp',
         title: 'Depression Explained',
         description: 'Understanding depression, its impact, and evidence-based approaches to recovery.',
         videoLink: 'https://www.youtube.com/watch?v=z-IR48Mb3W0'
       },
       {
-        imgSrc: '/images/ptsd-guide.jpg',
+        imgSrc: '/images/ptsd-guide.webp',
         title: 'PTSD Guide',
         description: 'Exploring trauma responses and effective therapies for post-traumatic stress disorder.',
         videoLink: 'https://www.youtube.com/watch?v=qlYvyPtYcwc&t=30s'
       },
       {
-        imgSrc: '/images/bipolar-disorder.jpg',
+        imgSrc: '/images/bipolar-disorder.webp',
         title: 'Bipolar Disorder',
         description: 'Explaining mood cycles, management strategies, and support systems for bipolar disorder.',
         videoLink: 'https://www.youtube.com/watch?v=KSvk8LLBo2g'
@@ -60,19 +60,19 @@ const MentalHealthResources = () => {
     ],
     coping: [
       {
-        imgSrc: '/images/meditation-thumb.jpg',
+        imgSrc: '/images/meditation-thumb.webp',
         title: 'Mindfulness Practices',
         description: 'Simple mindfulness exercises you can incorporate into your daily routine.',
         videoLink: 'https://www.youtube.com/watch?v=ZToicYcHIOU'
       },
       {
-        imgSrc: '/images/relaxation-thumb.jpg',
+        imgSrc: '/images/relaxation-thumb.webp',
         title: 'Relaxation Techniques',
         description: 'Guided breathing exercises, progressive muscle relaxation, and visualization techniques.',
         videoLink: 'https://www.youtube.com/watch?v=cyEdZ23Cp1E'
       },
       {
-        imgSrc: '/images/exercise-thumb.jpg',
+        imgSrc: '/images/exercise-thumb.webp',
         title: 'Exercise for Mental Health',
         description: 'The science behind how physical activity improves mood and reduces anxiety and depression.',
         videoLink: 'https://www.youtube.com/watch?v=GNWaWJm1A1g'
@@ -105,7 +105,7 @@ const MentalHealthResources = () => {
   };
   
   return (
-    <div className="bg-gray-50 min-h-screen">
+    <div className="bg-gray-100 min-h-screen">
       <header style={{ backgroundColor: colors.buttonBg }} className="text-[#003f87] py-12 px-4 text-center">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Mental Health Resources</h1>
@@ -149,6 +149,7 @@ const MentalHealthResources = () => {
                     src={`${resource.imgSrc}`} 
                     alt={`${resource.title} thumbnail`} 
                     className="object-cover w-full h-48"
+                    
                   />
                 </div>
               )}

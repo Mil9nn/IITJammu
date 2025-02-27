@@ -82,8 +82,8 @@ const HealthAndCounselingServices = () => {
 // FAQ Data
 const faqData = [
   {
-    question: "Where is the Health Center located?",
-    answer: "The Health Center is located in the Student Welfare Building, Ground Floor, near the Academic Block. It is easily accessible from all hostels and academic areas.",
+    question: "Where is the Counseling Center located?",
+    answer: "The Counseling Center is located in the Student Welfare Building, Ground Floor, near the Academic Block. It is easily accessible from all hostels and academic areas.",
   },
   {
     question: "Who can access the health and counseling services?",
@@ -104,7 +104,7 @@ const faqData = [
     ),
   },
   {
-    question: "How do I book an appointment with a doctor?",
+    question: "How do I book an appointment with a counsellor?",
     answer: (
       <div>
         You can book an appointment by:
@@ -114,7 +114,7 @@ const faqData = [
           <li>Visiting the Health Center reception during working hours</li>
           <li>Using the IIT Jammu mobile app</li>
         </ul>
-        Walk-in consultations are also available but subject to doctor availability.
+        Walk-in consultations are also available but subject to counsellor availability.
       </div>
     ),
   },
