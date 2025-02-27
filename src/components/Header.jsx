@@ -38,7 +38,7 @@ const Header = () => {
           </li>
           <li>
             <Link to="/appointments" className="hover:text-[#0062cc] hover:border-b-2 border-[#0062cc] pb-1 transition-all duration-200">
-              Appointments
+              Appointment
             </Link>
           </li>
           <li>

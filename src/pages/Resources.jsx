@@ -34,13 +34,13 @@ const MentalHealthResources = () => {
   const resources = {
     conditions: [
       {
-        imgSrc: '/images/anxiety-thumbnail.webp',
+        imgSrc: '/images/understanding-anxiety.webp',
         title: 'Understanding Anxiety',
         description: 'Learn about symptoms, causes, and treatment options for anxiety disorders.',
         videoLink: 'https://www.youtube.com/watch?v=U9ml2mmfMfM'
       },
       {
-        imgSrc: '/images/depression-thumbnail.webp',
+        imgSrc: '/images/depression-explained.webp',
         title: 'Depression Explained',
         description: 'Understanding depression, its impact, and evidence-based approaches to recovery.',
         videoLink: 'https://www.youtube.com/watch?v=z-IR48Mb3W0'
@@ -51,28 +51,22 @@ const MentalHealthResources = () => {
         description: 'Exploring trauma responses and effective therapies for post-traumatic stress disorder.',
         videoLink: 'https://www.youtube.com/watch?v=qlYvyPtYcwc&t=30s'
       },
-      {
-        imgSrc: '/images/bipolar-disorder.webp',
-        title: 'Bipolar Disorder',
-        description: 'Explaining mood cycles, management strategies, and support systems for bipolar disorder.',
-        videoLink: 'https://www.youtube.com/watch?v=KSvk8LLBo2g'
-      }
     ],
     coping: [
       {
-        imgSrc: '/images/meditation-thumb.webp',
+        imgSrc: '/images/mindfulness-practices.webp',
         title: 'Mindfulness Practices',
         description: 'Simple mindfulness exercises you can incorporate into your daily routine.',
         videoLink: 'https://www.youtube.com/watch?v=ZToicYcHIOU'
       },
       {
-        imgSrc: '/images/relaxation-thumb.webp',
+        imgSrc: '/images/relaxation-techniques.webp',
         title: 'Relaxation Techniques',
         description: 'Guided breathing exercises, progressive muscle relaxation, and visualization techniques.',
         videoLink: 'https://www.youtube.com/watch?v=cyEdZ23Cp1E'
       },
       {
-        imgSrc: '/images/exercise-thumb.webp',
+        imgSrc: '/images/exercises.webp',
         title: 'Exercise for Mental Health',
         description: 'The science behind how physical activity improves mood and reduces anxiety and depression.',
         videoLink: 'https://www.youtube.com/watch?v=GNWaWJm1A1g'

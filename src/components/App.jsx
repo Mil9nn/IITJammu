@@ -32,7 +32,7 @@ function App() {
                       {/* Service 01 - Mental Health Support */}
                       <div className="service bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <div className="img-wrapper h-48 overflow-hidden">
-                          <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/bg-depressed.webp" alt="Mental Health Support" loading="lazy" />
+                          <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/mental-health-support.webp" alt="Mental Health Support" loading="lazy" />
                         </div>
                         <div className="p-6">
                           <div className="flex items-center mb-3">
@@ -85,7 +85,7 @@ function App() {
                       {/* Service 02 - Academic Support */}
                       <div className="service bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <div className="img-wrapper h-48 overflow-hidden">
-                          <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/bg-academic.webp" alt="Academic Support" loading="lazy" />
+                          <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/academic-support.webp" alt="Academic Support" loading="lazy" />
                         </div>
                         <div className="p-6">
                           <div className="flex items-center mb-3">
@@ -145,7 +145,7 @@ function App() {
                       {/* Service 03 - Other Services */}
                       <div className="service bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <div className="img-wrapper h-48 overflow-hidden">
-                          <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/consultation.webp" alt="Other Healthcare Services" loading="lazy" />
+                          <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/healthcare-support.webp" alt="Other Healthcare Services" loading="lazy" />
                         </div>
                         <div className="p-6">
                           <div className="flex items-center mb-3">
@@ -273,7 +273,7 @@ function App() {
                       <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
                         <div className="relative">
                           <div className="aspect-w-3 aspect-h-4 overflow-hidden">
-                            <img className="w-full object-cover object-center" src="/images/vikram.webp" alt="Dr. Vikram" loading="lazy" />
+                            <img className="w-full object-cover object-center" src="/images/vikram.webp" alt="Nandita Sharma" loading="lazy" />
                           </div>
                           <div className="absolute top-4 right-4">
                             <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Educational Psychologist</span>
