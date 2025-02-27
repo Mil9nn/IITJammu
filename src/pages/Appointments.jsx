@@ -194,7 +194,7 @@ const AppointmentBooking = () => {
         </Dialog.Trigger>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-50" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+          <Dialog.Content className="fixed top-[410px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <div className="flex justify-between items-center">
               <Dialog.Title className="text-lg font-semibold">Book Appointment</Dialog.Title>
               <Dialog.Close asChild>
@@ -278,7 +278,7 @@ const AppointmentBooking = () => {
               <div className="space-y-2">
                 <label className="font-medium">Reason for Visit (Optional)</label>
                 <textarea
-                  className="w-full p-2 border rounded-md"
+                  className="w-full p-2 border rounded-md resize-none"
                   name="reason"
                   value={appointmentDetails.reason}
                   onChange={handleInputChange}

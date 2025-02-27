@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Header from "./Header";
 import Hero from "../pages/Hero";
 import AboutUs from "../pages/AboutUs";
@@ -264,7 +264,9 @@ function App() {
                           </div>
 
                           <div className="mt-6">
-                            <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors cursor-pointer">Book Appointment</button>
+                            <Link to="/appointments">
+                              <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors cursor-pointer">Book Appointment</button>
+                            </Link>
                           </div>
                         </div>
                       </div>
@@ -313,7 +315,9 @@ function App() {
                           </div>
 
                           <div className="mt-6">
-                            <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors cursor-pointer">Book Appointment</button>
+                            <Link to="/appointments">
+                              <button className="w-full py-2 px-4 bg-[#003f87] hover:bg-[#00326d] text-white font-medium rounded-lg transition-colors cursor-pointer">Book Appointment</button>
+                            </Link>
                           </div>
                         </div>
                       </div>
