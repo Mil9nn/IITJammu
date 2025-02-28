@@ -14,7 +14,7 @@ const Header = () => {
         <img src="/images/iit-jammu-logo.png" alt="IIT Jammu Logo" className="h-12 w-auto" />
         <div className="hidden md:block ml-3 border-l-2 border-gray-300 pl-3">
           <h1 className="text-[#004088] font-bold text-xl">Wellness Center</h1>
-          <p className="text-gray-600 text-sm">Supporting Mental & Physical Well-being</p>
+          <p className="text-gray-600 text-sm">Your Wellness, Our Priority</p>
         </div>
       </div>
 

@@ -142,48 +142,43 @@ function App() {
                         </div>
                       </div>
 
-                      {/* Service 03 - Other Services */}
+                      {/* Service 03 - Holistic Therapy */}
                       <div className="service bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                         <div className="img-wrapper h-48 overflow-hidden">
-                          <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/healthcare-support.webp" alt="Other Healthcare Services" loading="lazy" />
+                          <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/holistic-therapy.webp" alt="Holistic Therapy Services" loading="lazy" />
                         </div>
                         <div className="p-6">
                           <div className="flex items-center mb-3">
-                            <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
-                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#003f87]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                                />
+                            <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center mr-3">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-[#6b46c1]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                               </svg>
                             </div>
-                            <h3 className="font-bold text-xl text-gray-800">General Health Services</h3>
+                            <h3 className="font-bold text-xl text-gray-800">Holistic Therapy & Relaxation</h3>
                           </div>
 
-                          <p className="text-gray-600 mb-4">We provide comprehensive healthcare services including preventive care, first aid, general consultations, and referrals to specialists when needed.</p>
+                          <p className="text-gray-600 mb-4">Discover the power of holistic healing with therapies designed to reduce stress, improve well-being, and restore balance to mind and body.</p>
 
                           <div className="mb-5">
-                            <p className="font-semibold text-gray-700 mb-2">Our services offer:</p>
+                            <p className="font-semibold text-gray-700 mb-2">Our services include:</p>
                             <ul className="space-y-1">
                               <li className="flex items-start">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                 </svg>
-                                <span>Regular Health Check-ups</span>
+                                <span>Aromatherapy & Meditation</span>
                               </li>
                               <li className="flex items-start">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                 </svg>
-                                <span>Emergency First Aid</span>
+                                <span>Massage Therapy & Reflexology</span>
                               </li>
                               <li className="flex items-start">
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
                                   <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                 </svg>
-                                <span>Medical Consultations & Referrals</span>
+                                <span>Sound & Energy Healing</span>
                               </li>
                             </ul>
                           </div>
@@ -194,11 +189,12 @@ function App() {
                             </svg>
                             <p>
                               <span className="font-semibold">Availability: </span>
-                              Monday to Thursday, <span className="text-[#39a4cf] font-medium">9:30 AM – 5:30 PM</span>
+                              Tuesday to Saturday, <span className="text-[#39a4cf] font-medium">10:00 AM – 7:00 PM</span>
                             </p>
                           </div>
                         </div>
                       </div>
+
                     </div>
 
                     {/* View All Services Button */}
