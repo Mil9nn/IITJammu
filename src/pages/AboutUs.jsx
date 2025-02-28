@@ -1,3 +1,5 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 function AboutUs() {
   return (
     <div className="about-us">
@@ -8,12 +10,14 @@ function AboutUs() {
             <h1 className="text-4xl md:text-5xl font-bold text-[#003f87] mb-6">About Our Wellness Center</h1>
             <p className="text-xl text-gray-700 mb-8">Dedicated to supporting the wellbeing of the entire IIT Jammu community</p>
             <div className="flex justify-center">
-              <a href="/appointments" className="inline-flex items-center px-6 py-3 bg-[#003f87] text-white font-semibold rounded-full hover:bg-[#00326d] transition-colors shadow-md mr-4">
-                Book an Appointment
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-                </svg>
-              </a>
+              <Link to="/appointments">
+                <button className="inline-flex items-center px-6 py-3 bg-[#003f87] text-white font-semibold rounded-full hover:bg-[#00326d] transition-colors shadow-md mr-4 cursor-pointer">
+                  Book an Appointment
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                    <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                  </svg>
+                </button>
+              </Link>
               <a href="/contact-us" className="inline-flex items-center px-6 py-3 border-2 border-[#003f87] text-[#003f87] font-semibold rounded-full hover:bg-blue-50 transition-colors">
                 Contact Us
               </a>
