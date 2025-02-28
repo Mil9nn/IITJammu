@@ -25,7 +25,7 @@ function App() {
                   <div className="container mx-auto">
                     <div className="text-center mb-12">
                       <h2 className="font-bold text-3xl md:text-4xl text-[#003f87] mb-3">Services Offered</h2>
-                      <p className="text-gray-600 max-w-2xl mx-auto">Our comprehensive healthcare services are designed to support the physical and mental wellbeing of the entire IIT Jammu community.</p>
+                      <p className="text-gray-600 max-w-2xl mx-auto">Our comprehensive wellness services are designed to support the physical and mental well-being of the entire IIT Jammu community.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -218,7 +218,7 @@ function App() {
                   <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
                       <h2 className="font-bold text-3xl md:text-4xl text-[#003f87] mb-3">Meet Your Counsellors</h2>
-                      <p className="text-gray-600 max-w-2xl mx-auto">Our team of qualified healthcare professionals is committed to supporting your physical and mental wellbeing throughout your academic journey.</p>
+                      <p className="text-gray-600 max-w-2xl mx-auto">Our team of qualified wellness professionals is committed to supporting your physical and mental well-being throughout your academic journey.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -278,13 +278,13 @@ function App() {
                             <img className="w-full object-cover object-center" src="/images/vikram.webp" alt="Nandita Sharma" loading="lazy" />
                           </div>
                           <div className="absolute top-4 right-4">
-                            <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Educational Psychologist</span>
+                            <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Institute Counsellor</span>
                           </div>
                         </div>
 
                         <div className="p-6">
                           <h4 className="font-bold text-xl text-gray-800 mb-2">Nandita Sharma</h4>
-                          <p className="text-gray-500 text-sm mb-2">RCI Licensed Educational Psychologist</p>
+                          <p className="text-gray-500 text-sm mb-2">Clinical Psychologist (RCI Registered)</p>
 
                           <div className="border-t border-gray-100 my-4"></div>
 
@@ -310,7 +310,7 @@ function App() {
                                   d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                                 />
                               </svg>
-                              +91 1234567891
+                              +91 9033961612
                             </a>
                           </div>
 

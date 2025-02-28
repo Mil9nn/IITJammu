@@ -5,8 +5,8 @@ function AboutUs() {
       <div className="bg-gradient-to-r from-blue-50 to-blue-100 py-16">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-[#003f87] mb-6">About Our Health and Counseling Center</h1>
-            <p className="text-xl text-gray-700 mb-8">Dedicated to supporting the health and wellbeing of the entire IIT Jammu community</p>
+            <h1 className="text-4xl md:text-5xl font-bold text-[#003f87] mb-6">About Our Wellness Center</h1>
+            <p className="text-xl text-gray-700 mb-8">Dedicated to supporting the wellbeing of the entire IIT Jammu community</p>
             <div className="flex justify-center">
               <a href="/appointments" className="inline-flex items-center px-6 py-3 bg-[#003f87] text-white font-semibold rounded-full hover:bg-[#00326d] transition-colors shadow-md mr-4">
                 Book an Appointment
@@ -27,13 +27,12 @@ function AboutUs() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0 md:pr-12">
-              <img src="/images/mission.webp" alt="Healthcare professionals in a meeting" className="rounded-xl shadow-lg w-full" />
+              <img src="/images/mission.webp" alt="professionals in a meeting" className="rounded-xl shadow-lg w-full" />
             </div>
             <div className="md:w-1/2">
               <h2 className="text-3xl font-bold text-[#003f87] mb-6">Our Mission</h2>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                The Healthcare Center at IIT Jammu is committed to fostering a healthy campus by providing comprehensive, accessible, and high-quality healthcare services to students, faculty, and staff. We believe in a holistic approach
-                that addresses both physical and mental wellbeing.
+                The Wellness Center at IIT Jammu is committed to fostering a healthy campus by providing comprehensive, accessible, and high-quality wellness services to students, faculty, and staff. We believe in a holistic approach that addresses both physical and mental well-being.
               </p>
               <div className="bg-blue-50 p-6 rounded-lg border-l-4 border-[#39a4cf]">
                 <h3 className="font-semibold text-xl text-gray-800 mb-3">Our Core Values</h3>
@@ -82,7 +81,7 @@ function AboutUs() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#003f87] mb-4">Our Counsellors Team</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">Meet the dedicated professionals who oversee our healthcare services and ensure we provide the highest quality care to the IIT Jammu community.</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">Meet the dedicated professionals who oversee our wellness services and ensure we provide the highest quality care to the IIT Jammu community.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -137,7 +136,7 @@ function AboutUs() {
             <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="relative">
                 <div className="aspect-w-3 aspect-h-4 overflow-hidden">
-                  <img className="w-full object-cover object-center" src="/images/nandita.webp" alt=""  />
+                  <img className="w-full object-cover object-center" src="/images/nandita.webp" alt="" />
                 </div>
                 <div className="absolute top-4 right-4">
                   <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Educational Psychologist</span>
@@ -247,7 +246,7 @@ function AboutUs() {
             {/* Facility 3 */}
             <div className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 flex flex-col">
               <div className="h-48 overflow-hidden">
-                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/group-therapy.webp" alt="Group Therapy Room"  />
+                <img className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" src="/images/group-therapy.webp" alt="Group Therapy Room" />
               </div>
               <div className="p-6 flex-grow">
                 <div className="flex items-center mb-3">
@@ -263,7 +262,7 @@ function AboutUs() {
                   </div>
                   <h3 className="font-bold text-xl text-gray-800">Group Therapy Spaces</h3>
                 </div>
-                <p className="text-gray-600">Spacious, welcoming rooms designed for group therapy sessions, workshops, and community health programs.</p>
+                <p className="text-gray-600">Spacious, welcoming rooms designed for group wellness sessions, workshops, and community well-being programs.</p>
               </div>
             </div>
           </div>
@@ -288,7 +287,7 @@ function AboutUs() {
                   </div>
                   <h3 className="font-bold text-xl text-gray-800">On-Site Pharmacy</h3>
                 </div>
-                <p className="text-gray-600">Well-stocked pharmacy providing essential medications and health supplies for the campus community.</p>
+                <p className="text-gray-600">A well-equipped wellness resource hub providing essential self-care and well-being supplies for the campus community.</p>
               </div>
             </div>
 

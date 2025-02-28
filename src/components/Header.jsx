@@ -11,12 +11,13 @@ const Header = () => {
   return (
     <header className="flex items-center justify-between px-8 py-4 bg-white shadow-sm sticky top-0 z-50">
       <div className="logo flex items-center">
-        <img src="/images/iitjammu-logo.png" alt="IIT Jammu Logo" className="h-12 w-auto" />
+        <img src="/images/iit-jammu-logo.png" alt="IIT Jammu Logo" className="h-12 w-auto" />
         <div className="hidden md:block ml-3 border-l-2 border-gray-300 pl-3">
-          <h1 className="text-[#004088] font-bold text-xl">Counseling Services</h1>
-          <p className="text-gray-600 text-sm">Student Wellness Center</p>
+          <h1 className="text-[#004088] font-bold text-xl">Wellness Center</h1>
+          <p className="text-gray-600 text-sm">Supporting Mental & Physical Well-being</p>
         </div>
       </div>
+
 
       {/* Desktop Navigation */}
       <nav className="hidden lg:block">

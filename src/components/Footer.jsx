@@ -9,7 +9,7 @@ const EnhancedFooter = () => {
               <ul className="space-y-2">
                 {["Anti-Ragging", "Hall Bookings", "LED Displays", "Student Forms", "Student Policies", "Temporary Accommodation", "Taramani Guest House"].map((link, index) => (
                   <li key={index}>
-                    <a href="#" className="text-blue-200 hover:text-white transition-all duration-300 flex items-center group">
+                    <a href="https://iitjammu.ac.in/anti-ragging" className="text-blue-200 hover:text-white transition-all duration-300 flex items-center group">
                       <span className="transform group-hover:translate-x-1 transition-transform duration-300">&raquo;</span>
                       <span className="ml-2">{link}</span>
                     </a>

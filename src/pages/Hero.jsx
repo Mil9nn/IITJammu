@@ -7,10 +7,10 @@ const EnhancedHeroSection = () => {
       <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="text-center mb-8">
           <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-[#003f87] mb-4">
-            Health and Wellbeing at IIT Jammu
+            Wellbeing at IIT Jammu
           </h1>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Supporting our campus community with comprehensive healthcare services and wellness programs.
+          Supporting our campus community with comprehensive wellness programs and services
           </p>
         </div>
 
@@ -34,7 +34,7 @@ const EnhancedHeroSection = () => {
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
                   <span className="text-[#003f87]">🏥</span>
                 </div>
-                <span className="text-sm font-medium text-gray-700">Medical Services</span>
+                <span className="text-sm font-medium text-gray-700">Our Services</span>
               </button>
 
               <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
@@ -92,9 +92,9 @@ const EnhancedHeroSection = () => {
         <div className="container mx-auto px-4 py-6 md:py-8">
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="text-white mb-4 md:mb-0 text-center md:text-left">
-              <h3 className="font-bold text-xl mb-2">Need Health Support?</h3>
+              <h3 className="font-bold text-xl mb-2">Need Wellness Support?</h3>
               <p className="text-blue-100 max-w-lg">
-                Our healthcare professionals are here to support you 24/7. Don&apos;t hesitate to reach out for any concerns.
+              Our Wellness Center is here to help you thrive. Reach out to our wellness team for guidance, resources, or to learn more about our programs and services designed for your well-being.
               </p>
             </div>
             <div className="flex gap-4">

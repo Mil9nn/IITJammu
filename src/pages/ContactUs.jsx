@@ -39,22 +39,16 @@ const ContactCard = ({ title, phone, email, description }) => {
 const ContactUs = () => {
   const contacts = [
     {
-      title: "Wellness & Counselling Centre",
+      title: "Wellness Center",
       phone: "0191-257-0730",
-      email: "counselling.services@iitjammu.ac.in",
-      description: "Professional counselling services for students dealing with academic stress, personal issues, or mental health concerns."
+      email: "wellness@iitjammu.ac.in",
+      description: "Holistic wellness services for students, including mental health support, workshops, and well-being programs."
     },
     {
-      title: "Medical & Health Centre",
-      phone: "0191-257-0636",
-      email: "medical.centre@iitjammu.ac.in",
-      description: "Comprehensive healthcare services including routine checkups, vaccinations, and emergency medical care."
-    },
-    {
-      title: "Security Office (Jagti)",
+      title: "Security Office",
       phone: "0191-257-0638",
-      email: "office.security@iitjammu.ac.in",
-      description: "Campus security services, including safety protocols, ID verification, and emergency response."
+      email: "security@iitjammu.ac.in",
+      description: "Ensuring campus safety, emergency response, and security assistance for the IIT Jammu community."
     }
   ];
 
@@ -62,8 +56,8 @@ const ContactUs = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-gray-50 text-black text-center py-8 px-4">
-        <h1 className="text-3xl font-bold mb-2">Contact IIT Jammu</h1>
-        <p className="text-lg">We&apos;re here to help and provide support</p>
+        <h1 className="text-3xl font-bold mb-2">Contact Wellness Center</h1>
+        <p className="text-lg">We&apos;re here to support your well-being</p>
       </header>
 
       {/* Main Content */}

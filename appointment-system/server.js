@@ -4,7 +4,7 @@ import { connect, Schema, model } from "mongoose";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
-import { sendStatusNotification } from "./services/emailService.js";
+import { sendStatusNotification } from "./services/smsService.js";
 
 // Get directory name in ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -24,6 +24,13 @@ app.set('views', path.join(__dirname, 'views'));
 if (!process.env.MONGO_URI) {
   console.error("❌ MONGO_URI is not defined in .env file");
   process.exit(1); // Stop the server if the database URI is missing
+}
+
+// Ensure Twilio credentials are set
+if (!process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN || !process.env.TWILIO_PHONE_NUMBER) {
+  console.error("❌ Twilio credentials are not properly defined in .env file");
+  console.error("Required variables: TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER");
+  process.exit(1);
 }
 
 // Connect to MongoDB
@@ -116,30 +123,38 @@ app.patch("/api/appointments/:id/status", async (req, res) => {
       appointment.status = status;
 
       // Check if we need to send a notification for this status
-      if (['confirmed', 'rejected', 'waiting'].includes(status) &&
-        !appointment.notificationsSent[status]) {
-
+      let notificationSent = false;
+      
+      if (['confirmed', 'rejected', 'waiting'].includes(status)) {
         try {
-          // Send email notification
+          // Send SMS notification
           await sendStatusNotification(appointment);
-
+          
           // Mark this notification as sent
           appointment.notificationsSent[status] = true;
-        } catch (emailError) {
-          console.error("❌ Error sending email notification:", emailError);
-          // Continue with saving the appointment even if email fails
+          notificationSent = true;
+          console.log(`✅ SMS notification marked as sent for ${id} with status ${status}`);
+        } catch (smsError) {
+          console.error(`❌ Error sending ${status} SMS to ${appointment.phone}:`, smsError);
+          // Continue with saving the appointment even if SMS fails, but don't mark as sent
         }
       }
 
       // Save the updated appointment
       await appointment.save();
+      
+      res.status(200).json({
+        message: `Appointment status updated to ${status}`,
+        appointment,
+        notificationSent
+      });
+    } else {
+      res.status(200).json({
+        message: `Appointment already in ${status} status`,
+        appointment,
+        notificationSent: appointment.notificationsSent[status] || false
+      });
     }
-
-    res.status(200).json({
-      message: `Appointment status updated to ${status}`,
-      appointment,
-      notificationSent: ['confirmed', 'rejected', 'waiting'].includes(status)
-    });
   } catch (error) {
     console.error("Error updating appointment status:", error);
     res.status(500).json({ message: "Internal Server Error" });
@@ -311,7 +326,7 @@ app.get("/admin/appointments", async (req, res) => {
               });
               
               if (response.ok) {
-                alert('Notification resent successfully');
+                alert('SMS notification resent successfully');
                 window.location.reload();
               } else {
                 alert('Failed to resend notification. Please try again.');
@@ -359,7 +374,7 @@ app.post("/api/appointments/:id/resend-notification", async (req, res) => {
     }
 
     try {
-      // Send email notification
+      // Send SMS notification
       await sendStatusNotification(appointment);
 
       // Mark this notification as sent
@@ -367,11 +382,11 @@ app.post("/api/appointments/:id/resend-notification", async (req, res) => {
       await appointment.save();
 
       res.status(200).json({
-        message: `Notification for ${appointment.status} status sent successfully`
+        message: `SMS notification for ${appointment.status} status sent successfully`
       });
-    } catch (emailError) {
-      console.error("❌ Error sending email notification:", emailError);
-      res.status(500).json({ message: "Failed to send email notification" });
+    } catch (smsError) {
+      console.error("❌ Error sending SMS notification:", smsError);
+      res.status(500).json({ message: "Failed to send SMS notification" });
     }
   } catch (error) {
     console.error("Error resending notification:", error);
