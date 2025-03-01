@@ -143,13 +143,13 @@ function AboutUs() {
                   <img className="w-full object-cover object-center" src="/images/nandita.webp" alt="" />
                 </div>
                 <div className="absolute top-4 right-4">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Educational Psychologist</span>
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-blue-100 text-blue-800 text-sm font-medium">Institute Counsellor</span>
                 </div>
               </div>
 
               <div className="p-6">
                 <h4 className="font-bold text-xl text-gray-800 mb-2">Nandita Sharma</h4>
-                <p className="text-gray-500 text-sm mb-2">RCI Licensed Educational Psychologist</p>
+                <p className="text-gray-500 text-sm mb-2">Clinical Psychologist (RCI Registered)</p>
 
                 <div className="border-t border-gray-100 my-4"></div>
 
