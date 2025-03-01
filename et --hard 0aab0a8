@@ -1,0 +1,20 @@
+[33m92bc222[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m only for testing purpose
+[33m1c8e584[m trying to move .env to .gitignore
+[33m2a2fbb6[m added .env to .gitignore
+[33m0aab0a8[m updated a link to work properly
+[33m7dd8104[m changed some content including headings and paras
+[33me8468b4[m updated the name and content to wellness center iit jammu
+[33m26ddffe[m positioned form properly
+[33m6b3200c[m no reason to commit
+[33m2b83e57[m added a book an appointment feature
+[33me288ef5[m formatted some major files using online formatter and reduced images file size for reducing reload time
+[33mca88a2e[m Created a resources page added some youtube video links
+[33mecb72e4[m Added faq's section with some questions
+[33m180cfeb[m no commit msg
+[33m9ee1732[m improved footer styling
+[33me7029c8[m moved svgs folder to the public and changed svg paths
+[33mea96d6f[m changed image source paths
+[33mb258192[m removed the redirect file
+[33m58540a4[m Added a redirects file in the public folder
+[33m47ed735[m Finished home page of health and counselling
+[33mf95a332[m First Commit
