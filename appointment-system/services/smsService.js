@@ -1,11 +1,5 @@
-import twilio from 'twilio';
+import fetch from 'node-fetch';
 import 'dotenv/config';
-
-// Create a Twilio client
-const client = twilio(
-  process.env.TWILIO_ACCOUNT_SID,
-  process.env.TWILIO_AUTH_TOKEN
-);
 
 // SMS templates for different status updates
 const smsTemplates = {
@@ -43,7 +37,7 @@ const smsTemplates = {
   },
 };
 
-// Function to send notification SMS
+// Function to send notification SMS using Fast2SMS
 export const sendStatusNotification = async (appointment) => {
   console.log(`Attempting to send ${appointment.status} SMS to ${appointment.phone}`);
 
@@ -55,9 +49,7 @@ export const sendStatusNotification = async (appointment) => {
 
     // Log SMS configuration for debugging
     console.log('SMS Configuration:', {
-      accountSid: process.env.TWILIO_ACCOUNT_SID ? '✓ Set' : '✗ Missing',
-      authToken: process.env.TWILIO_AUTH_TOKEN ? '✓ Set' : '✗ Missing',
-      fromNumber: process.env.TWILIO_PHONE_NUMBER || '✗ Missing'
+      apiKey: process.env.FAST2SMS_API_KEY ? '✓ Set' : '✗ Missing',
     });
 
     const messageBody = smsTemplates[appointment.status](appointment);
@@ -65,19 +57,37 @@ export const sendStatusNotification = async (appointment) => {
     // Format phone number - removing any non-digit characters
     const formattedPhone = appointment.phone.replace(/\D/g, '');
     
-    // Add country code if not present (assuming US +1)
-    const phoneWithCountryCode = formattedPhone.length === 10 
-      ? `+1${formattedPhone}` 
-      : (formattedPhone.startsWith('+') ? formattedPhone : `+${formattedPhone}`);
+    // Ensure the phone number is a 10-digit Indian number
+    if (formattedPhone.length !== 10) {
+      throw new Error(`Invalid phone number: ${appointment.phone}. Must be a 10-digit Indian number.`);
+    }
 
-    const message = await client.messages.create({
-      body: messageBody,
-      from: process.env.TWILIO_PHONE_NUMBER,
-      to: phoneWithCountryCode
+    // Fast2SMS API endpoint
+    const url = 'https://www.fast2sms.com/dev/bulkV2';
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': process.env.FAST2SMS_API_KEY,
+      },
+      body: JSON.stringify({
+        route: 'q', // Use 'q' for promotional SMS or 'otp' for OTP messages
+        message: messageBody,
+        language: 'english', // Language of the message
+        numbers: formattedPhone, // Recipient's phone number (10-digit Indian number)
+      }),
     });
 
-    console.log(`✅ SMS sent to ${appointment.phone}: ${message.sid}`);
-    return message;
+    const result = await response.json();
+
+    if (result.return === true) {
+      console.log(`✅ SMS sent to ${formattedPhone}:`, result.request_id);
+    } else {
+      console.error('❌ Error sending SMS:', result.message);
+    }
+
+    return result;
   } catch (error) {
     console.error('❌ Error sending SMS notification:', error);
     throw error;

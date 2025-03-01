@@ -26,14 +26,28 @@ app.set('views', path.join(__dirname, 'views'));
 
 // Validate environment variables
 const validateEnvVariables = () => {
+  // Check for MongoDB URI
   if (!process.env.MONGO_URI) {
     console.error("❌ MONGO_URI is not defined in .env file");
     process.exit(1);
   }
 
-  if (!process.env.TWILIO_ACCOUNT_SID || !process.env.TWILIO_AUTH_TOKEN || !process.env.TWILIO_PHONE_NUMBER) {
-    console.error("❌ Twilio credentials are not properly defined in .env file");
-    console.error("Required variables: TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, TWILIO_PHONE_NUMBER");
+  // Check for Fast2SMS API Key
+  if (!process.env.FAST2SMS_API_KEY) {
+    console.error("❌ Fast2SMS API key is not defined in .env file");
+    console.error("Required variable: FAST2SMS_API_KEY");
+    process.exit(1);
+  }
+
+  // Optional: Add more validations for other environment variables if needed
+  // Example: JWT_SECRET, PORT, etc.
+  if (!process.env.JWT_SECRET) {
+    console.error("❌ JWT_SECRET is not defined in .env file");
+    process.exit(1);
+  }
+
+  if (!process.env.PORT) {
+    console.error("❌ PORT is not defined in .env file");
     process.exit(1);
   }
 };
