@@ -27,7 +27,7 @@ const AppointmentStatusChecker = () => {
     try {
       const API_URL = "https://iitjammu.onrender.com";
       // Fix: Update endpoint to use proper path format
-      const response = await fetch(`${API_URL}/appointments/${appointmentId}`);
+      const response = await fetch(`${API_URL}/api/appointments/${appointmentId}`);
       const data = await response.json();
       
       if (!response.ok) {

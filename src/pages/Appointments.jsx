@@ -91,8 +91,9 @@ const AppointmentBooking = () => {
 
     try {
       const API_URL = "https://iitjammu.onrender.com";
+      console.log("Sending request to:", `${API_URL}/api/appointments`);
       // Fix: Update endpoint to use proper path for creating appointments
-      const response = await fetch(`${API_URL}/appointments`, {
+      const response = await fetch(`${API_URL}/api/appointments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -107,7 +108,9 @@ const AppointmentBooking = () => {
         }),
       });
 
+      console.log("Response status:", response.status);
       const data = await response.json();
+      console.log("Response data:", data);
 
       if (response.ok) {
         setSubmitFeedback({ message: "Appointment booked successfully! An admin will review your request shortly.", isError: false });
@@ -130,7 +133,7 @@ const AppointmentBooking = () => {
     } catch (error) {
       console.error("Error booking appointment:", error);
       setSubmitFeedback({ 
-        message: "Network error. Please check your connection and try again.", 
+        message: `Network error: ${error.message}. Please check your connection and try again.`, 
         isError: true 
       });
     } finally {
