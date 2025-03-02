@@ -9,8 +9,17 @@ const createAdminUser = async () => {
     await connect(process.env.MONGO_URI);
     console.log("✅ MongoDB Connected");
     
+    const adminUsername = process.env.ADMIN_USERNAME;
+    const adminPassword = process.env.ADMIN_PASSWORD;
+    
+    // Validate environment variables
+    if (!adminUsername || !adminPassword) {
+      console.error("❌ ADMIN_USERNAME and ADMIN_PASSWORD must be set in .env file");
+      process.exit(1);
+    }
+    
     // Check if admin already exists
-    const adminExists = await User.findOne({ username: "admin" });
+    const adminExists = await User.findOne({ username: adminUsername });
     
     if (adminExists) {
       console.log("Admin user already exists");
@@ -19,8 +28,8 @@ const createAdminUser = async () => {
     
     // Create new admin user
     const adminUser = new User({
-      username: "admin",
-      password: "admin123", // This will be hashed by the pre-save hook
+      username: adminUsername,
+      password: adminPassword, // This will be hashed by the pre-save hook
       isAdmin: true
     });
     

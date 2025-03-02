@@ -54,6 +54,11 @@ const validateEnvVariables = () => {
     console.error("❌ PORT is not defined in .env file");
     process.exit(1);
   }
+
+  // Check for admin credentials if in development mode
+  if (process.env.NODE_ENV === 'development' && (!process.env.ADMIN_USERNAME || !process.env.ADMIN_PASSWORD)) {
+    console.warn("⚠️ Warning: ADMIN_USERNAME and/or ADMIN_PASSWORD not defined in .env file");
+  }
 };
 
 // Routes
