@@ -91,7 +91,8 @@ const AppointmentBooking = () => {
 
     try {
       const API_URL = "https://iitjammu.onrender.com";
-      const response = await fetch(API_URL, {
+      // Fix: Update endpoint to use proper path for creating appointments
+      const response = await fetch(`${API_URL}/appointments`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
