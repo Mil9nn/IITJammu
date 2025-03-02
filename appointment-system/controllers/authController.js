@@ -52,7 +52,8 @@ export const loginUser = async (req, res) => {
     res.cookie('auth_token', token, {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000, // 1 day
-      secure: process.env.NODE_ENV === 'production'
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'strict'
     });
     
     // Redirect to admin dashboard

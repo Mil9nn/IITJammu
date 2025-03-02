@@ -62,9 +62,9 @@ const validateEnvVariables = () => {
 };
 
 // Routes
+app.use("/auth", authRoutes);
 app.use("/api/appointments", appointmentRoutes);
 app.use("/admin", adminRoutes);
-app.use("/auth", authRoutes);
 
 // Root route redirects to login
 app.get("/", (req, res) => {
