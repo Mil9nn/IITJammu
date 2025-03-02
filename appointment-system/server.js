@@ -25,8 +25,8 @@ app.use(express.urlencoded({ extended: true }));
 // Adjust CORS configuration based on environment
 const corsOptions = {
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://your-render-app-domain.onrender.com', 'https://health-and-counselling.netlify.app/'] 
-    : 'http://localhost:5000',
+    ? 'https://health-and-counselling.netlify.app' // Only your frontend domain
+    : 'http://localhost:5000', // Your local frontend during development
   credentials: true
 };
 
