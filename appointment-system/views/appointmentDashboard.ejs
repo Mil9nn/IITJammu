@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Appointment Dashboard</title>
+  <title>Admin Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
   <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">Appointment Dashboard</h1>
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold text-gray-800">Dashboard: <%= adminName %></h1>
+      <a href="/auth/logout" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        Logout
+      </a>
+    </div>
     
     <div class="bg-white shadow-md rounded-lg overflow-hidden">
       <div class="p-4 bg-blue-500 text-white flex justify-between items-center">
-        <h2 class="text-xl font-semibold">All Appointments</h2>
+        <h2 class="text-xl font-semibold">Your Appointments</h2>
         <span class="bg-blue-700 px-3 py-1 rounded-full text-sm"><%= appointments.length %> Total</span>
       </div>
       
@@ -67,8 +72,11 @@
               } else if (['confirmed', 'rejected', 'waiting'].includes(appointment.status)) {
                 notificationStatus = `<span class="text-red-600">Not Sent</span>`;
               }
+              
+              // Check if appointment is assigned or not
+              const isAssigned = appointment.assignedAdmin ? true : false;
             %>
-            <tr>
+            <tr class="<%= isAssigned ? '' : 'bg-yellow-50' %>">
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
                   <div>
@@ -93,12 +101,16 @@
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                 <div class="flex space-x-2">
-                  <button data-id="<%= appointment._id %>" data-status="confirmed" class="status-btn text-green-600 hover:text-green-900">Confirm</button>
-                  <button data-id="<%= appointment._id %>" data-status="waiting" class="status-btn text-blue-600 hover:text-blue-900">Wait</button>
-                  <button data-id="<%= appointment._id %>" data-status="rejected" class="status-btn text-red-600 hover:text-red-900">Reject</button>
-                  <% if (['confirmed', 'rejected', 'waiting'].includes(appointment.status) && 
-                        !appointment.notificationsSent?.[appointment.status]) { %>
-                    <button data-id="<%= appointment._id %>" data-action="resend" class="resend-btn text-purple-600 hover:text-purple-900 ml-2">Resend</button>
+                  <% if (!isAssigned) { %>
+                    <button data-id="<%= appointment._id %>" data-action="assign" class="assign-btn text-purple-600 hover:text-purple-900">Assign to Me</button>
+                  <% } else { %>
+                    <button data-id="<%= appointment._id %>" data-status="confirmed" class="status-btn text-green-600 hover:text-green-900">Confirm</button>
+                    <button data-id="<%= appointment._id %>" data-status="waiting" class="status-btn text-blue-600 hover:text-blue-900">Wait</button>
+                    <button data-id="<%= appointment._id %>" data-status="rejected" class="status-btn text-red-600 hover:text-red-900">Reject</button>
+                    <% if (['confirmed', 'rejected', 'waiting'].includes(appointment.status) && 
+                          !appointment.notificationsSent?.[appointment.status]) { %>
+                      <button data-id="<%= appointment._id %>" data-action="resend" class="resend-btn text-purple-600 hover:text-purple-900 ml-2">Resend</button>
+                    <% } %>
                   <% } %>
                 </div>
               </td>
@@ -129,10 +141,37 @@
             // Refresh the page to see the updated status
             window.location.reload();
           } else {
-            alert('Failed to update status. Please try again.');
+            const data = await response.json();
+            alert(data.message || 'Failed to update status. Please try again.');
           }
         } catch (error) {
           console.error('Error updating status:', error);
+          alert('An error occurred. Please try again.');
+        }
+      });
+    });
+    
+    // Add event listeners for assignment buttons
+    document.querySelectorAll('.assign-btn').forEach(button => {
+      button.addEventListener('click', async function() {
+        const id = this.getAttribute('data-id');
+        
+        try {
+          const response = await fetch(`/api/appointments/${id}/assign`, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+          
+          if (response.ok) {
+            window.location.reload();
+          } else {
+            const data = await response.json();
+            alert(data.message || 'Failed to assign appointment. Please try again.');
+          }
+        } catch (error) {
+          console.error('Error assigning appointment:', error);
           alert('An error occurred. Please try again.');
         }
       });

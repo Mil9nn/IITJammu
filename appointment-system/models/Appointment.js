@@ -8,6 +8,11 @@ const appointmentSchema = new Schema({
   time: { type: String, required: true },
   appointmentType: { type: String, required: true },
   reason: { type: String },
+  assignedAdmin: { 
+    type: Schema.Types.ObjectId, 
+    ref: 'User',
+    default: null
+  },
   status: {
     type: String,
     required: true,

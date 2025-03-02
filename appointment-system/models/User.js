@@ -6,6 +6,7 @@ const userSchema = new Schema({
   username: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   isAdmin: { type: Boolean, default: true },
+  adminName: { type: String, required: true }, // Added field for admin's display name
   createdAt: { type: Date, default: Date.now }
 });
 
