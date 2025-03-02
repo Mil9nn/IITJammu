@@ -90,7 +90,8 @@ const AppointmentBooking = () => {
     setSubmitFeedback({ message: "", isError: false });
 
     try {
-      const response = await fetch("http://localhost:5000/api/appointments", {
+      const API_URL = "https://iitjammu.onrender.com";
+      const response = await fetch(API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -100,13 +101,15 @@ const AppointmentBooking = () => {
           date: selectedDate.toISOString(), // Store as ISO string
           time: selectedTime,
           status: "pending", // Default status
+          // We don't assign an admin here - it will be unassigned
+          // and visible to all admins until one claims it
         }),
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setSubmitFeedback({ message: "Appointment booked successfully!", isError: false });
+        setSubmitFeedback({ message: "Appointment booked successfully! An admin will review your request shortly.", isError: false });
         // Reset form after short delay
         setTimeout(() => {
           setIsDialogOpen(false);
@@ -137,12 +140,6 @@ const AppointmentBooking = () => {
   return (
     <div className="w-full max-w-4xl mx-auto p-4">
       <h2 className="text-2xl font-bold text-gray-800 mb-6">Schedule an Appointment</h2>
-
-      
-
-
-
-
 
       <div className="mb-6">
         <h3 className="text-lg font-semibold text-gray-700 mb-3 flex items-center">
@@ -193,8 +190,8 @@ const AppointmentBooking = () => {
           <button className="hidden">Open</button>
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-50" />
-          <Dialog.Content className="fixed top-[410px] left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+          <Dialog.Overlay className="fixed inset-0 bg-gray-400 bg-opacity-50" />
+          <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg max-w-md w-full z-100">
             <div className="flex justify-between items-center">
               <Dialog.Title className="text-lg font-semibold">Book Appointment</Dialog.Title>
               <Dialog.Close asChild>
@@ -285,6 +282,10 @@ const AppointmentBooking = () => {
                   placeholder="Briefly describe your reason for the appointment"
                   rows={3}
                 />
+              </div>
+
+              <div className="p-3 bg-blue-50 text-blue-800 rounded-md">
+                <p className="text-sm">Your appointment will be reviewed by our admin team once submitted.</p>
               </div>
 
               {submitFeedback.message && (

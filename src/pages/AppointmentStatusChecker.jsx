@@ -25,7 +25,8 @@ const AppointmentStatusChecker = () => {
     setError("");
     
     try {
-      const response = await fetch(`http://localhost:5000/api/appointments/${appointmentId}`);
+      const API_URL = "https://iitjammu.onrender.com";
+      const response = await fetch(`${API_URL}/${appointmentId}`);
       const data = await response.json();
       
       if (!response.ok) {

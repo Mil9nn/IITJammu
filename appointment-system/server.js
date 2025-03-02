@@ -21,7 +21,16 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+// Adjust CORS configuration based on environment
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? ['https://your-render-app-domain.onrender.com', 'https://your-frontend-domain.com'] 
+    : 'http://localhost:5000',
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
