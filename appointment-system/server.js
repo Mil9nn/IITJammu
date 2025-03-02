@@ -1,11 +1,14 @@
+// server.js
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
+import cookieParser from "cookie-parser";
 import { connectDB } from "./config/db.js";
 import appointmentRoutes from "./routes/appointmentRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 import errorHandler from "./middleware/errorHandler.js";
 
 // Get directory name in ESM
@@ -17,7 +20,9 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set up view engine
@@ -39,8 +44,7 @@ const validateEnvVariables = () => {
     process.exit(1);
   }
 
-  // Optional: Add more validations for other environment variables if needed
-  // Example: JWT_SECRET, PORT, etc.
+  // JWT_SECRET is required for authentication
   if (!process.env.JWT_SECRET) {
     console.error("❌ JWT_SECRET is not defined in .env file");
     process.exit(1);
@@ -55,6 +59,12 @@ const validateEnvVariables = () => {
 // Routes
 app.use("/api/appointments", appointmentRoutes);
 app.use("/admin", adminRoutes);
+app.use("/auth", authRoutes);
+
+// Root route redirects to login
+app.get("/", (req, res) => {
+  res.redirect("/auth/login");
+});
 
 // Error handling middleware
 app.use(errorHandler);
