@@ -78,68 +78,95 @@ const AppointmentBooking = () => {
     return null; // No validation errors
   };
 
-  const handleSubmitAppointment = async () => {
-    // Validate the form
-    const validationError = validateForm();
-    if (validationError) {
-      setSubmitFeedback({ message: validationError, isError: true });
-      return;
-    }
+  // Updated handleSubmitAppointment function for Appointments.jsx
+const handleSubmitAppointment = async () => {
+  // Validate the form
+  const validationError = validateForm();
+  if (validationError) {
+    setSubmitFeedback({ message: validationError, isError: true });
+    return;
+  }
 
-    setIsSubmitting(true);
-    setSubmitFeedback({ message: "", isError: false });
+  setIsSubmitting(true);
+  setSubmitFeedback({ message: "", isError: false });
 
-    try {
-      const API_URL = "https://iitjammu.onrender.com";
-      console.log("Sending request to:", `${API_URL}/api/appointments`);
-      // Fix: Update endpoint to use proper path for creating appointments
-      const response = await fetch(`${API_URL}/api/appointments`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...appointmentDetails,
-          date: selectedDate.toISOString(), // Store as ISO string
-          time: selectedTime,
-          status: "pending", // Default status
-          // We don't assign an admin here - it will be unassigned
-          // and visible to all admins until one claims it
-        }),
-      });
+  try {
+    const API_URL = "https://iitjammu.onrender.com";
+    console.log("Sending request to:", `${API_URL}/api/appointments`);
+    
+    const response = await fetch(`${API_URL}/api/appointments`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...appointmentDetails,
+        date: selectedDate.toISOString(),
+        time: selectedTime,
+        status: "pending",
+      }),
+    });
 
-      console.log("Response status:", response.status);
-      const data = await response.json();
-      console.log("Response data:", data);
-
-      if (response.ok) {
-        setSubmitFeedback({ message: "Appointment booked successfully! An admin will review your request shortly.", isError: false });
-        // Reset form after short delay
-        setTimeout(() => {
-          setIsDialogOpen(false);
-          setSelectedDate(null);
-          setSelectedTime(null);
-          setAppointmentDetails({
-            name: "",
-            email: "",
-            phone: "",
-            appointmentType: "",
-            reason: "",
-          });
-        }, 1500);
+    console.log("Response status:", response.status);
+    
+    // Check if response is ok before trying to parse JSON
+    if (response.ok) {
+      // Only try to parse JSON if there's content
+      if (response.headers.get("content-length") !== "0") {
+        const data = await response.json();
+        console.log("Response data:", data);
+        
+        setSubmitFeedback({ 
+          message: "Appointment booked successfully! An admin will review your request shortly.", 
+          isError: false 
+        });
       } else {
-        setSubmitFeedback({ message: data.message || "Failed to book appointment", isError: true });
+        // Handle empty but successful response
+        setSubmitFeedback({ 
+          message: "Appointment booked successfully! An admin will review your request shortly.", 
+          isError: false 
+        });
       }
-    } catch (error) {
-      console.error("Error booking appointment:", error);
-      setSubmitFeedback({ 
-        message: `Network error: ${error.message}. Please check your connection and try again.`, 
-        isError: true 
-      });
-    } finally {
-      setIsSubmitting(false);
+      
+      // Reset form after short delay
+      setTimeout(() => {
+        setIsDialogOpen(false);
+        setSelectedDate(null);
+        setSelectedTime(null);
+        setAppointmentDetails({
+          name: "",
+          email: "",
+          phone: "",
+          appointmentType: "",
+          reason: "",
+        });
+      }, 1500);
+    } else {
+      // Try to get error message from response if possible
+      try {
+        const errorData = await response.json();
+        setSubmitFeedback({ 
+          message: errorData.message || `Error: ${response.status} - ${response.statusText}`, 
+          isError: true 
+        });
+      } catch (jsonError) {
+        // If we can't parse JSON, just use status text
+        setSubmitFeedback({ 
+          message: `Error: ${response.status} - ${response.statusText}`, 
+          isError: true 
+        });
+      }
     }
-  };
+  } catch (error) {
+    console.error("Error booking appointment:", error);
+    setSubmitFeedback({ 
+      message: `Network error: ${error.message}. Please check your connection and try again.`, 
+      isError: true 
+    });
+  } finally {
+    setIsSubmitting(false);
+  }
+};
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4">
