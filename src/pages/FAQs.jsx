@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import HelpSelector from '../components/HelpSelector';
 
 const WellnessCenter = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -77,33 +76,6 @@ const WellnessCenter = () => {
           <p><strong>Helpline:</strong> 0191-XXX-XXXX (24/7 Support)</p>
         </div>
       </div>
-
-
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <HelpSelector />
-
-
-
-
-
-
-
 
       {/* Footer */}
       <footer className="bg-[#003f87] text-white text-center py-4 mt-8">

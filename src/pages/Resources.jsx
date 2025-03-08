@@ -123,7 +123,7 @@ const MentalHealthResources = () => {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <header style={{ backgroundColor: colors.buttonBg }} className="text-[#003f87] py-12 px-4 text-center">
+      <header className="text-[#003f87] bg-white py-12 px-4 text-center">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-4xl font-bold mb-4">Mental Health Resources</h1>
           <p className="text-xl text-gray-700">Supporting your journey to mental wellness with evidence-based information and tools</p>
@@ -174,11 +174,11 @@ const MentalHealthResources = () => {
               <button
                 key={key}
                 onClick={() => setActiveTab(key)}
-                className={`px-4 py-2 rounded-md text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${activeTab === key
+                className={`px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors cursor-pointer ${activeTab === key
                   ? 'text-gray-600'
                   : 'text-gray-600 hover:bg-gray-100'
                   }`}
-                style={activeTab === key ? { backgroundColor: colors.buttonBg } : {}}
+                style={activeTab === key ? { backgroundColor: "#0000004a" } : {}}
               >
                 {data.title}
               </button>

@@ -102,7 +102,7 @@ const ProactiveMentalWellbeing = () => {
           <div className="inline-flex rounded-md shadow-sm">
             <button
               type="button"
-              className={`px-5 py-3 text-sm font-medium rounded-l-lg cursor-pointer ${activeTab === 'challenges'
+              className={`px-5 py-3 text-sm font-medium cursor-pointer transition-all duration-1000 ${activeTab === 'challenges'
                   ? 'bg-blue-600 text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-50'
                 }`}
@@ -112,7 +112,7 @@ const ProactiveMentalWellbeing = () => {
             </button>
             <button
               type="button"
-              className={`px-5 py-3 text-sm font-medium rounded-r-lg cursor-pointer ${activeTab === 'counselor'
+              className={`px-5 py-3 text-sm font-medium cursor-pointer transition-all duration-1000 ${activeTab === 'counselor'
                   ? 'bg-blue-600 text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-50'
                 }`}
