@@ -77,95 +77,31 @@ const AppointmentBooking = () => {
     return null; // No validation errors
   };
 
-  // Updated handleSubmitAppointment function for Appointments.jsx
-const handleSubmitAppointment = async () => {
-  // Validate the form
-  const validationError = validateForm();
-  if (validationError) {
-    setSubmitFeedback({ message: validationError, isError: true });
-    return;
-  }
-
-  setIsSubmitting(true);
-  setSubmitFeedback({ message: "", isError: false });
-
-  try {
-    const API_URL = "https://iitjammu.onrender.com";
-    console.log("Sending request to:", `${API_URL}/api/appointments`);
-    
-    const response = await fetch(`${API_URL}/api/appointments`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...appointmentDetails,
-        date: selectedDate.toISOString(),
-        time: selectedTime,
-        status: "pending",
-      }),
-    });
-
-    console.log("Response status:", response.status);
-    
-    // Check if response is ok before trying to parse JSON
-    if (response.ok) {
-      // Only try to parse JSON if there's content
-      if (response.headers.get("content-length") !== "0") {
-        const data = await response.json();
-        console.log("Response data:", data);
-        
-        setSubmitFeedback({ 
-          message: "Appointment booked successfully! An admin will review your request shortly.", 
-          isError: false 
-        });
-      } else {
-        // Handle empty but successful response
-        setSubmitFeedback({ 
-          message: "Appointment booked successfully! An admin will review your request shortly.", 
-          isError: false 
-        });
-      }
-      
-      // Reset form after short delay
-      setTimeout(() => {
-        setIsDialogOpen(false);
-        setSelectedDate(null);
-        setSelectedTime(null);
-        setAppointmentDetails({
-          name: "",
-          email: "",
-          phone: "",
-          appointmentType: "",
-          reason: "",
-        });
-      }, 1500);
-    } else {
-      // Try to get error message from response if possible
-      try {
-        const errorData = await response.json();
-        setSubmitFeedback({ 
-          message: errorData.message || `Error: ${response.status} - ${response.statusText}`, 
-          isError: true 
-        });
-      } catch (jsonError) {
-        // If we can't parse JSON, just use status text
-        setSubmitFeedback({ 
-          message: `Error: ${response.status} - ${response.statusText}`, 
-          isError: true 
-        });
-      }
+  const handleSubmitAppointment = async () => {
+    // Validate the form
+    const validationError = validateForm();
+    if (validationError) {
+      setSubmitFeedback({ message: validationError, isError: true });
+      return;
     }
-  } catch (error) {
-    console.error("Error booking appointment:", error);
-    setSubmitFeedback({ 
-      message: `Network error: ${error.message}. Please check your connection and try again.`, 
-      isError: true 
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+
+    setIsSubmitting(true);
+    setSubmitFeedback({ message: "", isError: false });
+
+    try {
+      const response = await fetch("http://localhost:5000/api/appointments", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...appointmentDetails,
+          date: selectedDate.toISOString(), // Store as ISO string
+          time: selectedTime,
+          status: "pending", // Default status
+        }),
+      });
+
       const data = await response.json();
 
       if (response.ok) {
@@ -198,7 +134,6 @@ const handleSubmitAppointment = async () => {
 
   return (
     <div className="w-full max-w-4xl mx-auto p-4">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6">Schedule an Appointment</h2>
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Schedule an Appointment</h2>
       
       {/* New booking options description section */}
@@ -304,8 +239,6 @@ const handleSubmitAppointment = async () => {
           <button className="hidden">Open</button>
         </Dialog.Trigger>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-gray-400 bg-opacity-50" />
-          <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg max-w-md w-full z-100">
           <Dialog.Overlay className="fixed inset-0 bg-gray-500 bg-opacity-50" />
           <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
             <div className="flex justify-between items-center">
@@ -383,26 +316,6 @@ const handleSubmitAppointment = async () => {
                     </Select.Viewport>
                   </Select.Content>
                 </Select.Root>
-              </div>
-
-              <div className="space-y-2">
-                <label className="font-medium">Reason for Visit (Optional)</label>
-                <textarea
-                  className="w-full p-2 border rounded-md resize-none"
-                  name="reason"
-                  value={appointmentDetails.reason}
-                  onChange={handleInputChange}
-                  placeholder="Briefly describe your reason for the appointment"
-                  rows={3}
-                />
-              </div>
-
-              <div className="p-3 bg-blue-50 text-blue-800 rounded-md">
-                <p className="text-sm">Your appointment will be reviewed by our admin team once submitted.</p>
-              </div>
-
-              <div className="p-3 bg-blue-50 text-blue-800 rounded-md">
-                <p className="text-sm">Your appointment will be reviewed by our admin team once submitted.</p>
               </div>
 
               {submitFeedback.message && (
