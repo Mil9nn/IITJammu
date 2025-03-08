@@ -1,6 +1,6 @@
 import express from "express";
 import Appointment from "../models/Appointment.js";
-import { sendStatusNotification } from "../services/smsService.js";
+import { sendStatusNotification } from "../services/emailService.js";
 import { authenticateUser, isAdmin } from "../middleware/authMiddleware.js";
 
 const router = express.Router();

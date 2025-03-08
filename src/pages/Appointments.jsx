@@ -2,9 +2,21 @@ import { useState } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Select from "@radix-ui/react-select";
 import { Calendar, Clock, X, Mail, Phone, Globe, User } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 const AppointmentBooking = () => {
   const today = new Date();
+
+  // Initialize EmailJS
+  const initEmailJS = () => {
+    // Replace with your actual EmailJS public key
+    emailjs.init("KniHu1m19uqHKrqKD");
+  };
+
+  // Call initialization once when component mounts
+  useState(() => {
+    initEmailJS();
+  }, []);
 
   const generateDates = () => {
     const dates = [];
@@ -77,6 +89,47 @@ const AppointmentBooking = () => {
     return null; // No validation errors
   };
 
+  // Function to send email notification
+  const sendEmailNotification = async (appointmentData) => {
+    try {
+      // Get appointment type label for email
+      const appointmentTypes = {
+        consultation: "General Consultation",
+        followup: "Follow-up Visit",
+        emergency: "Urgent Care",
+        virtual: "Virtual Appointment"
+      };
+      
+      const appointmentTypeLabel = appointmentTypes[appointmentData.appointmentType] || appointmentData.appointmentType;
+      
+      // Prepare template parameters
+      const templateParams = {
+        to_email: "hallucinatory3@gmail.com", // Replace with your notification email
+        from_name: appointmentData.name,
+        from_email: appointmentData.email,
+        phone: appointmentData.phone,
+        appointment_date: formatDate(new Date(appointmentData.date)),
+        appointment_time: appointmentData.time,
+        appointment_type: appointmentTypeLabel,
+        subject: `New Appointment Request: ${appointmentData.name} - ${formatDate(new Date(appointmentData.date))} at ${appointmentData.time}`
+      };
+
+      // Send the email using EmailJS
+      // Replace with your actual service ID and template ID from EmailJS
+      const response = await emailjs.send(
+        "service_e3yfqbd",
+        "template_zfpm1ge",
+        templateParams
+      );
+
+      console.log("Email notification sent successfully:", response);
+      return true;
+    } catch (error) {
+      console.error("Error sending email notification:", error);
+      return false;
+    }
+  };
+
   const handleSubmitAppointment = async () => {
     // Validate the form
     const validationError = validateForm();
@@ -89,23 +142,35 @@ const AppointmentBooking = () => {
     setSubmitFeedback({ message: "", isError: false });
 
     try {
+      const appointmentData = {
+        ...appointmentDetails,
+        date: selectedDate.toISOString(), // Store as ISO string
+        time: selectedTime,
+        status: "pending", // Default status
+      };
+
+      // 1. Send to your API endpoint
       const response = await fetch("http://localhost:5000/api/appointments", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...appointmentDetails,
-          date: selectedDate.toISOString(), // Store as ISO string
-          time: selectedTime,
-          status: "pending", // Default status
-        }),
+        body: JSON.stringify(appointmentData),
       });
 
       const data = await response.json();
 
+      // 2. Send email notification
+      const emailSent = await sendEmailNotification(appointmentData);
+
       if (response.ok) {
-        setSubmitFeedback({ message: "Appointment booked successfully!", isError: false });
+        let successMessage = "Appointment booked successfully!";
+        if (!emailSent) {
+          successMessage += " (Note: Email notification could not be sent, but your appointment is confirmed)";
+        }
+        
+        setSubmitFeedback({ message: successMessage, isError: false });
+        
         // Reset form after short delay
         setTimeout(() => {
           setIsDialogOpen(false);

@@ -46,10 +46,10 @@ const validateEnvVariables = () => {
     process.exit(1);
   }
 
-  // Check for Fast2SMS API Key
-  if (!process.env.FAST2SMS_API_KEY) {
-    console.error("❌ Fast2SMS API key is not defined in .env file");
-    console.error("Required variable: FAST2SMS_API_KEY");
+  // Check for EmailJs API Key
+  if (!process.env.EMAILJS_SERVICE_ID || !process.env.EMAILJS_TEMPLATE_ID || !process.env.EMAILJS_USER_ID) {
+    console.error("❌ EmailJS configuration is not complete in .env file");
+    console.error("Required variables: EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_USER_ID");
     process.exit(1);
   }
 

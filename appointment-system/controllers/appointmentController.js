@@ -1,5 +1,5 @@
 import Appointment from "../models/Appointment.js";
-import { sendStatusNotification } from "../services/smsService.js";
+import { sendStatusNotification, sendAdminNotification } from "../services/emailService.js";
 
 // Create Appointment
 export const createAppointment = async (req, res) => {
@@ -15,8 +15,18 @@ export const createAppointment = async (req, res) => {
     const newAppointment = new Appointment({ name, email, phone, date, time, appointmentType, reason });
     await newAppointment.save();
 
+    // Send admin notification about new appointment
+    try {
+      await sendAdminNotification(newAppointment);
+      console.log('✅ Admin notification sent successfully');
+    } catch (notificationError) {
+      console.error('❌ Error sending admin notification:', notificationError);
+      // Continue even if notification fails
+    }
+
     res.status(201).json({ message: "✅ Appointment booked successfully!" });
   } catch (error) {
+    console.error('❌ Error creating appointment:', error);
     res.status(500).json({ message: "Internal Server Error" });
   }
 };
@@ -32,6 +42,15 @@ export const updateAppointmentStatus = async (req, res) => {
 
     appointment.status = status;
     await appointment.save();
+
+    // If status is one of these, send notification
+    if (['confirmed', 'waiting', 'rejected'].includes(status)) {
+      try {
+        await sendStatusNotification(appointment);
+      } catch (notificationError) {
+        console.error(`❌ Error sending status notification: ${notificationError.message}`);
+      }
+    }
 
     res.status(200).json({ message: `Appointment status updated to ${status}` });
   } catch (error) {
