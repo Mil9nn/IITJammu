@@ -21,7 +21,16 @@ const app = express();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+
+// Adjust CORS configuration based on environment
+const corsOptions = {
+  origin: process.env.NODE_ENV === 'production' 
+    ? 'https://iitjammu.onrender.com' // Only your frontend domain
+    : 'http://localhost:5173', // Your local frontend during development
+  credentials: true
+};
+
+app.use(cors(corsOptions));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
