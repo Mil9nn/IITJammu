@@ -6,14 +6,14 @@ const Carousel = () => {
   // Sample images for the carousel
   const images = [
     {
-      src: "/images/health-center.jpg",
-      alt: "Wellness Building",
-      caption: "IIT Jammu Wellness Center",
+      src: "/images/group-of-students.webp",
+      alt: "",
+      caption: "",
     },
     {
       src: "/images/medical-staff.jpg",
-      alt: "Wellness Professionals",
-      caption: "Our Dedicated Wellness Team",
+      alt: "",
+      caption: "",
     },
     {
       src: "/images/wellness-workshop.jpg",
@@ -23,7 +23,7 @@ const Carousel = () => {
     {
       src: "/images/medical-equipment.jpg",
       alt: "Medical Equipment",
-      caption: "State-of-the-art Facilities",
+      caption: "",
     },
   ];
 

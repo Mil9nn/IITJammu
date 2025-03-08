@@ -1,43 +1,113 @@
+import { useState } from "react";
 import Carousel from '../components/Carousel';
+import NotificationsPanel from '../components/NotificationsPanel';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import {
+  Heart,
+  Shield,
+  Lock,
+  Users,
+} from 'lucide-react';
 
 const EnhancedHeroSection = () => {
+  const [activeTab, setActiveTab] = useState('mission');
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
+      <div className="relative bg-gradient-to-r from-[#003f87] to-[#39a4cf] text-white py-20">
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 flex items-center justify-between w-[500px] mx-auto">
+            <img className="w-25 h-25" src="/images/wellness-logo.jpg" alt="wellness-centre-logo" />
+              <span>Wellness Center <br /> IIT Jammu</span>
+            </h1>
+            <p className="text-xl text-blue-100 mb-8 max-w-4xl mx-auto">
+            Our team is committed to providing comprehensive wellness services to support the mental and emotional well-being of our community. Explore our range of services designed to help you thrive.
+            </p>
+            <div className="flex justify-center space-x-4">
+              <Link to="/about-us"
+                className="px-6 py-3 border-2 border-white text-white font-semibold rounded-full transition-all transform hover:translate-x-2"
+              >
+                Explore Services
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#003f87]/80 to-[#39a4cf]/80 opacity-75"></div>
+      </div>
+      {/* Mission and Values Section */}
+      <div className="container mx-auto px-4 py-16">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <div className="flex space-x-4 mb-6">
+              {['mission', 'values'].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors cursor-pointer ${activeTab === tab
+                    ? 'bg-[#003f87] text-white'
+                    : 'bg-blue-100 text-[#003f87] hover:bg-blue-200'
+                    }`}
+                >
+                  {tab === 'mission' ? 'Our Mission' : 'Core Values'}
+                </button>
+              ))}
+            </div>
+
+            {activeTab === 'mission' ? (
+              <div className="space-y-4">
+                <h2 className="text-3xl font-bold text-[#003f87] mb-4">Our Mission</h2>
+                <p className="text-gray-700 leading-relaxed">
+                  The Wellness Center at IIT Jammu is committed to fostering a healthy campus by providing comprehensive, accessible, and high-quality wellness services to students, faculty, and staff.
+                </p>
+                <div className="flex items-center space-x-3 text-[#39a4cf]">
+                  <Heart className="h-6 w-6" />
+                  <span className="font-medium">Holistic Well-being Approach</span>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <h2 className="text-3xl font-bold text-[#003f87] mb-4">Core Values</h2>
+                <div className="space-y-3">
+                  {[
+                    { icon: <Shield className="h-6 w-6" />, text: "Compassion" },
+                    { icon: <Lock className="h-6 w-6" />, text: "Confidentiality" },
+                    { icon: <Users className="h-6 w-6" />, text: "Accessibility" }
+                  ].map((value, index) => (
+                    <div key={index} className="flex items-center space-x-3 text-gray-700">
+                      <div className="text-[#39a4cf]">{value.icon}</div>
+                      <span className="font-medium">{value.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+          <div className="hidden md:block">
+            <img
+              src="/images/mission.webp"
+              alt="Wellness Center Mission"
+              className="rounded-xl shadow-2xl transform hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
+      </div>
+      {/* Hero Section */}
       <div className="container mx-auto px-4 py-8 md:py-12">
         <div className="text-center mb-8">
-          <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl text-[#003f87] mb-4">
-            Wellbeing at IIT Jammu
-          </h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-          Supporting our campus community with comprehensive wellness programs and services
-          </p>
+          <p className="font-bold text-xl md:text-2xl lg:text-3xl text-gray-600 mb-4 w-[900px] mx-auto">Supporting our campus community with comprehensive wellness programs</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Carousel - Takes 2/3 of the space on large screens */}
-          <div className="lg:col-span-2 rounded-xl overflow-hidden shadow-lg bg-white">
+          <div className="lg:col-span-2 rounded-xl overflow-hidden shadow-lg">
             <div className="relative h-64 md:h-80 lg:h-96 bg-gray-200">
               <Carousel />
             </div>
 
             {/* Quick access buttons below carousel */}
-            <div className="grid grid-cols-3 gap-4 p-4 bg-white">
-              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
-                  <span className="text-[#003f87]">📅</span>
-                </div>
-                <span className="text-sm font-medium text-gray-700">Book Appointment</span>
-              </button>
-
-              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
-                  <span className="text-[#003f87]">🏥</span>
-                </div>
-                <span className="text-sm font-medium text-gray-700">Our Services</span>
-              </button>
-
-              <button className="flex flex-col items-center p-3 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
+            <div className="grid grid-cols-3 gap-4 p-1 bg-white">
+              <button className="flex items-center gap-2 p-1 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
                   <span className="text-[#003f87]">🧘</span>
                 </div>
@@ -45,67 +115,7 @@ const EnhancedHeroSection = () => {
               </button>
             </div>
           </div>
-
-          {/* Notifications Panel */}
-          <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-            <div className="bg-[#003f87] text-white p-4">
-              <h2 className="font-semibold text-xl flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                  <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
-                </svg>
-                Notifications
-              </h2>
-            </div>
-            <div className="notifications flex flex-col items-start overflow-y-auto h-80 p-5">
-              {/* Notification Items */}
-              {[1, 2, 3, 4].map((item) => (
-                <div key={item} className="notification group w-full flex flex-col gap-1 mb-4 p-3 border-b border-gray-100 hover:bg-blue-50 rounded-lg transition-all cursor-pointer">
-                  <p className="text-[#004088] font-medium">
-                    {item === 1 ? "New mental health workshop scheduled next week" :
-                      item === 2 ? "COVID-19 booster shots now available at health center" :
-                        item === 3 ? "Yoga classes every Wednesday at Student Activity Center" :
-                          "Nutritionist consultation slots open for booking"}
-                  </p>
-                  <p className="flex items-center gap-1 text-gray-400 text-sm ml-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                    <span>Published: {item === 1 ? "21-02-2025" :
-                      item === 2 ? "18-02-2025" :
-                        item === 3 ? "15-02-2025" :
-                          "10-02-2025"}</span>
-                  </p>
-                </div>
-              ))}
-            </div>
-            <div className="p-3 bg-gray-50 text-center">
-              <button className="text-[#003f87] font-medium hover:underline">
-                View All Notifications
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Contact Banner */}
-      <div className="bg-gradient-to-r from-[#003f87] to-[#0063b1] mt-8">
-        <div className="container mx-auto px-4 py-6 md:py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="text-white mb-4 md:mb-0 text-center md:text-left">
-              <h3 className="font-bold text-xl mb-2">Need Wellness Support?</h3>
-              <p className="text-blue-100 max-w-lg">
-              Our Wellness Center is here to help you thrive. Reach out to our wellness team for guidance, resources, or to learn more about our programs and services designed for your well-being.
-              </p>
-            </div>
-            <div className="flex gap-4">
-              <a href="tel:01912571111" className="px-5 py-3 rounded-full bg-white text-[#003f87] font-bold hover:bg-blue-50 cursor-pointer transition-all shadow-md">
-                Emergency: 0191-257-1111
-              </a>
-              <button className="px-5 py-3 rounded-full bg-[#00a8ff] text-white font-bold hover:bg-[#0098e5] cursor-pointer transition-all shadow-md">
-                Contact Us
-              </button>
-            </div>
-          </div>
+          <NotificationsPanel />
         </div>
       </div>
     </div>

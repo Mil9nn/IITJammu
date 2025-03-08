@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import HelpSelector from '../components/HelpSelector';
 
 const WellnessCenter = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -20,13 +21,28 @@ const WellnessCenter = () => {
           </p>
         </div>
 
-        {/* Service Hours Section */}
-        <div className="flex flex-wrap justify-around gap-4 my-8">
-          <div className="bg-white p-6 rounded-lg shadow-sm border-l-4 border-orange-500 flex-1 min-w-[300px]">
-            <h3 className="text-xl font-semibold text-indigo-900">Wellness Center Hours</h3>
-            <p className="mt-2"><strong>Weekdays:</strong> 9:00 AM - 6:00 PM</p>
-            <p><strong>Weekends:</strong> By Appointment Only</p>
-            <p><strong>Emergency:</strong> 24/7 Support Available</p>
+        <div className="flex">
+          <div className="bg-white p-6 rounded-lg shadow-md max-w-lg mx-auto text-center">
+            <h2 className="text-2xl font-bold text-[#003f87] mb-4">Hours and Appointments</h2>
+            <p className="text-gray-700 mb-2">
+              Our Counseling Services are open <span className="font-semibold">Monday to Friday</span>
+            </p>
+            <p className="text-gray-700 mb-2">
+              <span className="font-semibold">Emergency cases</span> are given priority and are available <span className="font-semibold">24/7.</span>
+            </p>
+            <p className="text-gray-700">
+              Appointments can be scheduled through the <span className="font-semibold">EG-Portal</span> or by directly
+              contacting an <span className="font-semibold">Institute Counselor.</span>
+            </p>
+          </div>
+          {/* Service Hours Section */}
+          <div className="flex flex-wrap justify-around gap-4 my-8">
+            <div className="bg-white p-6 rounded-md shadow-sm border-l-4 border-orange-500 flex-1 min-w-[300px]">
+              <h3 className="text-xl font-semibold text-indigo-900">Wellness Center Hours</h3>
+              <p className="mt-2"><strong>Weekdays:</strong> 9:30 AM - 5:30 PM</p>
+              <p><strong>Weekends:</strong> By Appointment Only</p>
+              <p><strong>Emergency:</strong> 24/7 Support Available</p>
+            </div>
           </div>
         </div>
 
@@ -61,6 +77,33 @@ const WellnessCenter = () => {
           <p><strong>Helpline:</strong> 0191-XXX-XXXX (24/7 Support)</p>
         </div>
       </div>
+
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <HelpSelector />
+
+
+
+
+
+
+
 
       {/* Footer */}
       <footer className="bg-[#003f87] text-white text-center py-4 mt-8">
