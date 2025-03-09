@@ -157,18 +157,6 @@ const Testimonials = () => {
   const getFallbackTestimonials = () => [
     {
       id: 1,
-      name: 'Rahul Sharma',
-      position: 'B.Tech Student, CSE',
-      content: 'The counseling services have been a lifeline during my academic journey. The wellness center has created a safe space where I could openly discuss challenges and find solutions. Highly recommended!'
-    },
-    {
-      id: 2,
-      name: 'Priya Patel',
-      position: 'Faculty, Mathematics Department',
-      content: 'The stress management workshops organized by the wellness center have significantly improved my work-life balance. The techniques I learned have made a remarkable difference in handling the pressures of academia.'
-    },
-    {
-      id: 3,
       name: 'Arjun Mehta',
       position: 'Ph.D. Scholar, Physics',
       content: 'As research scholars, we often face unique challenges that impact our mental health. The wellness center has been instrumental in providing specialized support through group therapy sessions tailored for research students.'
@@ -220,20 +208,6 @@ const Testimonials = () => {
           <div className="text-center py-8">
             <div className="inline-block animate-spin rounded-full h-8 w-8 border-4 border-blue-300 border-t-blue-600"></div>
             <p className="mt-2 text-gray-600">Loading testimonials...</p>
-          </div>
-        )}
-
-        {error && testimonials.length > 0 && (
-          <div className="text-center py-4 mb-8">
-            <p className="text-yellow-600 bg-yellow-50 p-3 rounded-lg inline-block">
-              {error}
-            </p>
-          </div>
-        )}
-
-        {error && testimonials.length === 0 && (
-          <div className="text-center py-8">
-            <p className="text-red-500">{error}</p>
           </div>
         )}
 

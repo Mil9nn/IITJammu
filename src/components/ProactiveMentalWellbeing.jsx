@@ -329,9 +329,7 @@ const ProactiveMentalWellbeing = () => {
                   <p className="mt-4 text-gray-600">Loading questions and answers...</p>
                 </div>
               ) : error ? (
-                <div className="text-center text-red-700 p-4 rounded-lg">
-                  {error}
-                </div>
+                ""
               ) : (
                 <div className="space-y-6">
                   {counselorQA.map((item) => (
