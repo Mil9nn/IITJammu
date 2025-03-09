@@ -3,40 +3,61 @@ import Carousel from '../components/Carousel';
 import NotificationsPanel from '../components/NotificationsPanel';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import {
-  Heart,
   Shield,
   Lock,
   Users,
-  Calendar,
-  BookOpen,
-  PhoneCall
 } from 'lucide-react';
 
 const EnhancedHeroSection = () => {
-  const [activeTab, setActiveTab] = useState('mission');
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-[#003f87] to-[#39a4cf] text-white py-20">
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 flex flex-col sm:flex-row items-center justify-center sm:justify-between w-full sm:w-4/5 md:w-3/4 lg:w-[500px] mx-auto gap-4">
-              <img className="w-20 h-20 sm:w-25 sm:h-25" src="/images/wellness-logo.jpg" alt="wellness-centre-logo" />
-              <span>Wellness Center <br /> IIT Jammu</span>
-            </h1>
-            <p className="text-xl text-blue-100 mb-8 max-w-4xl mx-auto">
-              Our team is committed to providing comprehensive wellness services to support the mental and emotional well-being of our community. Explore our range of services designed to help you thrive.
-            </p>
-            <div className="flex justify-center space-x-4">
-              <Link to="/about-us"
-                className="px-6 py-3 border-2 border-white text-white font-semibold rounded-full transition-all transform hover:translate-x-2"
-              >
-                Explore Services
-              </Link>
+      <div className="relative bg-gradient-to-r from-[#003f87] to-[#39a4cf] text-white py-16 md:py-20">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="flex flex-col items-center text-center">
+              {/* Logo and Title with better alignment */}
+              <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
+                <div className="bg-white p-2 rounded-full shadow-lg">
+                  <img
+                    className="w-24 h-24 md:w-28 md:h-28 rounded-full object-cover"
+                    src="/images/wellness-logo.jpg"
+                    alt="Wellness Centre Logo"
+                  />
+                </div>
+                <h1 className="text-4xl md:text-5xl font-bold">
+                  <span className="block md:text-left">Wellness Center</span>
+                  <span className="block text-blue-200 md:text-left mt-1">IIT Jammu</span>
+                </h1>
+              </div>
+
+              {/* Description with better spacing */}
+              <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
+                Our team is committed to providing comprehensive wellness services to support
+                the mental and emotional well-being of our community. Explore our range of
+                services designed to help you thrive.
+              </p>
+
+              {/* Buttons with better styling */}
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link
+                  to="/about-us"
+                  className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full
+                      transition-all duration-300 hover:bg-white/10 transform hover:-translate-y-1"
+                >
+                  Explore Services
+                </Link>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Improved gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#003f87]/80 to-[#39a4cf]/80 opacity-75"></div>
+
+        {/* Decorative elements for visual interest */}
+        <div className="absolute bottom-0 left-0 w-full h-12 bg-white/5"></div>
+        <div className="absolute top-1/2 left-0 w-full h-px bg-white/10"></div>
       </div>
 
       {/* Introduction Section */}
@@ -98,19 +119,7 @@ const EnhancedHeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Carousel - Takes 2/3 of the space on large screens */}
           <div className="lg:col-span-2 rounded-xl overflow-hidden shadow-lg">
-            <div className="relative h-64 md:h-80 lg:h-96 bg-gray-200">
-              <Carousel />
-            </div>
-
-            {/* Quick access buttons below carousel */}
-            <div className="grid grid-cols-3 gap-4 p-1 bg-white">
-              <button className="flex items-center gap-2 p-1 rounded-lg hover:bg-blue-50 transition-all cursor-pointer">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mb-2">
-                  <span className="text-[#003f87]">🧘</span>
-                </div>
-                <span className="text-sm font-medium text-gray-700">Wellness Programs</span>
-              </button>
-            </div>
+            <Carousel />
           </div>
           <NotificationsPanel />
         </div>
