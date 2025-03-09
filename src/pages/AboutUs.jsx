@@ -5,6 +5,7 @@ import {
 } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import FacilitiesSection from '../components/FacilitiesSection';
+import Testimonials from '../components/Testimonials';
 
 function AboutUs() {
 
@@ -63,6 +64,29 @@ function AboutUs() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#003f87]/80 to-[#39a4cf]/80 opacity-75"></div>
       </div>
+
+      {/* Introduction Section */}
+      <div className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="border-l-4 border-[#003f87] pl-6 mb-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-[#003f87] mb-3">Our Mission</h2>
+            </div>
+            <div className="text-gray-700 space-y-6">
+              <p className="leading-relaxed">
+                In our journey through life, we strive to transform our personal and professional aspirations into reality. Yet, the pressure to excel often brings emotional and psychological challenges that disrupt our inner peace.
+              </p>
+              <p className="leading-relaxed">
+                At the Wellness Center, we believe in addressing these often-overlooked aspects of well-being. Our team of professional counselors and empathetic student coordinators is here to support you academically and emotionally. Through counseling, you can learn to make better decisions, enhance interpersonal skills, build confidence, and improve your academic performance. In one-on-one sessions, our counselors provide a safe space to explore your feelings, challenge limiting beliefs, evaluate behaviors, and work toward positive, lasting change.
+              </p>
+              <p className="leading-relaxed">
+                We encourage you to reach out to us without hesitation—whether for academic, emotional, social, or financial concerns. Our goal is to help you stay focused, resilient, and fulfilled as you navigate your journey at IIT Jammu.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Services Provided */}
       <div className="services py-12 px-4 bg-gradient-to-b from-[#f3f4f6] to-white">
         <div className="container mx-auto">
@@ -251,30 +275,7 @@ function AboutUs() {
         </div>
       </div>
       <FacilitiesSection />
-      {/* Testimonials */}
-      <div className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#003f87] mb-4">Testimonials</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">What members of the IIT Jammu community say about our wellness services</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Testimonial 1 */}
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 shadow-md">
-              <div className="flex items-center mb-4">
-                <div className="h-12 w-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
-                  <span className="text-[#003f87] font-bold text-xl">A</span>
-                </div>
-                <div>
-                  <h4 className="font-bold text-gray-800">Arjun Mehta</h4>
-                  <p className="text-sm text-gray-500">Engineering Student</p>
-                </div>
-              </div>
-              <p className="text-gray-700 italic">&quot;The counseling services helped me cope with academic pressure and anxiety. The staff is supportive, professional, and truly cares about student wellbeing.&quot;</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <Testimonials />
 
     </div>
   );

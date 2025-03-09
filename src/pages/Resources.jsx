@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import ErrorBoundary from "../components/ErrorBoundary";
 import ProactiveMentalWellbeing from '../components/ProactiveMentalWellbeing';
 
 const MentalHealthResources = () => {
@@ -139,7 +140,7 @@ const MentalHealthResources = () => {
                 onClick={closeVideo}
                 className="mr-4 hover:bg-[#003366] p-2 rounded-full"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
@@ -149,7 +150,7 @@ const MentalHealthResources = () => {
               onClick={closeVideo}
               className="hover:bg-[#003366] p-2 rounded-full"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
@@ -209,8 +210,8 @@ const MentalHealthResources = () => {
                   />
                   {resource.videoId && (
                     <div className="absolute inset-0 flex items-center justify-center bg-opacity-30 hover:bg-opacity-50 transition-opacity duration-300">
-                      <div className="w-14 h-14 rounded-full bg-blue-500 flex items-center justify-center">
-                        <svg width="40" height="40" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
+                      <div className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center">
+                        <svg width="30" height="30" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
                           <polygon points="15,10 40,25 15,40" fill="#000000" />
                         </svg>
                       </div>
@@ -237,7 +238,9 @@ const MentalHealthResources = () => {
             </div>
           ))}
         </div>
-        <ProactiveMentalWellbeing />
+        <ErrorBoundary>
+          <ProactiveMentalWellbeing />
+        </ErrorBoundary>
       </main>
 
       <footer className="bg-gray-100 py-8 px-4 mt-12">

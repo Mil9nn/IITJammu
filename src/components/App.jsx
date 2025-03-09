@@ -8,6 +8,7 @@ import FAQs from "../pages/FAQs";
 import ContactUs from "../pages/ContactUs";
 import Footer from "../components/Footer";
 import WellnessCTA from "./WellnessCTA";
+import Events from "../pages/Events";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/appointments" element={<Appointments />} />
           <Route path="/faqs" element={<FAQs />} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/events" element={<Events />} />
         </Routes>
       </Router>
     </>

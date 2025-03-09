@@ -1,7 +1,37 @@
 import { useState, useEffect } from 'react';
 import emailjs from '@emailjs/browser';
 
-// This component contains both the Monthly Wellness Challenges and Ask the Counselor features
+// Function to extract plain text from Strapi's structured content format
+const extractTextFromRichText = (content) => {
+  if (typeof content === 'string') return content;
+
+  try {
+    // If it's a JSON string, parse it first
+    const parsedContent = typeof content === 'string' ? JSON.parse(content) : content;
+
+    // Handle array format (multiple blocks)
+    if (Array.isArray(parsedContent)) {
+      return parsedContent.map(block => extractTextFromRichText(block)).join('\n');
+    }
+
+    // Handle object format (single block)
+    if (parsedContent && typeof parsedContent === 'object') {
+      // Check for text property directly
+      if (parsedContent.text) return parsedContent.text;
+
+      // Check for children array with text nodes
+      if (parsedContent.children && Array.isArray(parsedContent.children)) {
+        return parsedContent.children.map(child => extractTextFromRichText(child)).join('');
+      }
+    }
+
+    return String(content);
+  } catch (e) {
+    console.warn('Error parsing rich text content:', e);
+    return String(content);
+  }
+};
+
 const ProactiveMentalWellbeing = () => {
   const [activeTab, setActiveTab] = useState('challenges');
   const [formData, setFormData] = useState({
@@ -13,23 +43,121 @@ const ProactiveMentalWellbeing = () => {
     error: false,
     message: '',
   });
+  const [counselorQA, setCounselorQA] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  // Strapi API configuration
+  const STRAPI_API_URL = 'http://localhost:1337/api/questions?populate=*';
 
   useEffect(() => {
     // Initialize EmailJS with your user ID
-    // Replace "YOUR_USER_ID" with your actual EmailJS user ID
     emailjs.init("KniHu1m19uqHKrqKD");
+
+    // Fetch counselor Q&A data from Strapi
+    fetchQAFromStrapi();
   }, []);
 
-  // Sample data for counselor Q&A - in production, fetch this from your backend
-  const counselorQA = [
+  const fetchQAFromStrapi = async () => {
+    try {
+      setLoading(true);
+      console.log(`Fetching from: ${STRAPI_API_URL}`);
 
-    {
-      id: 1,
-      question: "How do I know if I'm just stressed or developing anxiety?",
-      answer: "Stress is typically temporary and tied to specific situations, while anxiety tends to persist even after stressors are gone. If you're experiencing persistent worry, physical symptoms like racing heart or trouble breathing, or if your daily functioning is affected, it may be anxiety.",
-      date: "2025-02-18"
+      // Add a timeout to the fetch request
+      const fetchPromise = fetch(STRAPI_API_URL);
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Request timed out')), 10000)
+      );
+
+      const response = await Promise.race([fetchPromise, timeoutPromise]);
+
+      if (!response.ok) {
+        console.error(`HTTP error! Status: ${response.status}`);
+        throw new Error(`Failed to fetch data from Strapi CMS: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+      console.log('Received data:', data); // Log the received data structure
+
+      // Check if data has the expected structure
+      if (!data || !data.data || !Array.isArray(data.data)) {
+        console.error('Unexpected data structure:', data);
+        throw new Error('Data from Strapi does not have the expected structure');
+      }
+
+      // Transform the Strapi response into the format we need
+      const transformedData = data.data.map((item) => {
+        // Check if item has attributes structure (standard Strapi response)
+        if (item && item.attributes) {
+          return {
+            id: item.id,
+            question: item.attributes.question,
+            answer: extractTextFromRichText(item.attributes.answer),
+            date: item.attributes.date,
+            featured: item.attributes.featured || false
+          };
+        }
+        // Handle direct structure (your current response)
+        else if (item && item.id && item.question) {
+          return {
+            id: item.id,
+            question: item.question,
+            // Handle case where answer is an array
+            // In your transformedData mapping function:
+            answer: extractTextFromRichText(Array.isArray(item.answer) ? item.answer[0] : item.answer),
+            date: item.date,
+            featured: item.featured || false
+          };
+        } else {
+          console.warn('Invalid item structure:', item);
+          return null;
+        }
+      })
+        .filter(item => item && item.question && item.answer); // Filter out null and empty entries
+
+      console.log('Transformed data:', transformedData);
+
+      if (transformedData.length === 0) {
+        console.warn('No valid data items found after transformation');
+        setError('No questions available at this time. Please check back later.');
+      } else {
+        setCounselorQA(transformedData);
+        setError(null);
+      }
+
+      setLoading(false);
+    } catch (err) {
+      console.error('Error fetching Q&A data:', err);
+
+      // More specific error message based on error type
+      let errorMessage = 'Failed to load Q&A data. Please try again later.';
+
+      if (err.message.includes('timed out')) {
+        errorMessage = 'Request timed out. Please check if the server is running.';
+      } else if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
+        errorMessage = 'Could not connect to  server. Please check if it is running at the correct address.';
+      }
+
+      setError(errorMessage);
+      setLoading(false);
+
+      // Fall back to sample data if there's an error
+      setCounselorQA([
+        {
+          id: 1,
+          question: "How do I know if I'm just stressed or developing anxiety?",
+          answer: "Stress is typically temporary and tied to specific situations, while anxiety tends to persist even after stressors are gone. If you're experiencing persistent worry, physical symptoms like racing heart or trouble breathing, or if your daily functioning is affected, it may be anxiety.",
+          date: "2025-02-18"
+        },
+        {
+          id: 2,
+          question: "What's the difference between sadness and depression?",
+          answer: "Sadness is a normal emotion that comes and goes in response to life events. Depression is persistent (lasting weeks or more), affects your ability to function daily, and may include symptoms like loss of interest in activities, changes in sleep or appetite, and feelings of worthlessness.",
+          date: "2025-03-01"
+        }
+      ]);
     }
-  ];
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -52,7 +180,6 @@ const ProactiveMentalWellbeing = () => {
       };
 
       // Send email using EmailJS
-      // Replace "YOUR_SERVICE_ID" and "YOUR_TEMPLATE_ID" with your actual values
       const response = await emailjs.send(
         "service_ev9dr4z",
         "template_0gaeqnu",
@@ -103,8 +230,8 @@ const ProactiveMentalWellbeing = () => {
             <button
               type="button"
               className={`px-5 py-3 text-sm font-medium cursor-pointer transition-all duration-1000 ${activeTab === 'challenges'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white text-gray-700 hover:bg-gray-50'
                 }`}
               onClick={() => setActiveTab('challenges')}
             >
@@ -113,8 +240,8 @@ const ProactiveMentalWellbeing = () => {
             <button
               type="button"
               className={`px-5 py-3 text-sm font-medium cursor-pointer transition-all duration-1000 ${activeTab === 'counselor'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
+                ? 'bg-blue-600 text-white'
+                : 'bg-white text-gray-700 hover:bg-gray-50'
                 }`}
               onClick={() => setActiveTab('counselor')}
             >
@@ -176,8 +303,8 @@ const ProactiveMentalWellbeing = () => {
                       type="submit"
                       disabled={formStatus.submitted}
                       className={`px-6 py-3 rounded-lg font-medium ${formStatus.submitted
-                          ? 'bg-gray-400 text-white cursor-not-allowed'
-                          : 'bg-[#007bff] text-white hover:translate-x-2 transition-all cursor-pointer duration-300'
+                        ? 'bg-gray-400 text-white cursor-not-allowed'
+                        : 'bg-[#007bff] text-white hover:translate-x-2 transition-all cursor-pointer duration-300'
                         }`}
                     >
                       Submit Question
@@ -196,19 +323,30 @@ const ProactiveMentalWellbeing = () => {
               {/* Previously Answered Questions */}
               <h3 className="text-xl font-bold text-blue-800 mb-6">Recently Answered Questions</h3>
 
-              <div className="space-y-6">
-                {counselorQA.map((item) => (
-                  <div key={item.id} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
-                    <div className="mb-4">
-                      <h4 className="text-lg font-semibold text-blue-800">{item.question}</h4>
-                      <p className="text-sm text-gray-500 mt-1">Posted on {formatDate(item.date)}</p>
+              {loading ? (
+                <div className="text-center py-10">
+                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500 mx-auto"></div>
+                  <p className="mt-4 text-gray-600">Loading questions and answers...</p>
+                </div>
+              ) : error ? (
+                <div className="text-center text-red-700 p-4 rounded-lg">
+                  {error}
+                </div>
+              ) : (
+                <div className="space-y-6">
+                  {counselorQA.map((item) => (
+                    <div key={item.id} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
+                      <div className="mb-4">
+                        <h4 className="text-lg font-semibold text-blue-800">{item.question}</h4>
+                        <p className="text-sm text-gray-500 mt-1">Posted on {formatDate(item.date)}</p>
+                      </div>
+                      <div className="pl-4 border-l-4 border-blue-500">
+                        <p className="text-gray-600">{item.answer}</p>
+                      </div>
                     </div>
-                    <div className="pl-4 border-l-4 border-blue-500">
-                      <p className="text-gray-600">{item.answer}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              )}
 
               <div className="mt-8 text-center">
                 <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
