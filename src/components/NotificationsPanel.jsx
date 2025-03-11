@@ -64,8 +64,8 @@ function NotificationsPanel() {
   }, [isPaused]);
   
   return (
-    <div className="rounded-xl overflow-hidden shadow-lg bg-white">
-      <div className="bg-[#003f87] text-white p-4">
+    <div className="rounded-xl overflow-hidden shadow-xl bg-white/95 backdrop-blur-sm border border-white/20">
+      <div className="bg-gradient-to-r from-[#003f87] to-[#0059a9] text-white p-4">
         <h2 className="font-semibold text-xl flex items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,27 +75,27 @@ function NotificationsPanel() {
           >
             <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
           </svg>
-          Notifications
+          Events & Announcements
         </h2>
       </div>
       <div 
         ref={containerRef}
-        className="notifications overflow-hidden h-90" 
+        className="notifications overflow-hidden h-80" 
         onMouseEnter={() => setIsPaused(true)}
         onMouseLeave={() => setIsPaused(false)}
       >
         <div 
           ref={notificationsRef} 
-          className="flex flex-col items-start p-5"
+          className="flex flex-col items-start p-4"
         >
           {/* Notification Items */}
           {notifications.map((notification) => (
             <div
               key={notification.id}
-              className="notification group w-full flex flex-col gap-1 mb-4 p-3 border-b border-gray-100 hover:bg-blue-50 rounded-lg transition-all cursor-pointer"
+              className="notification group w-full flex flex-col gap-1 mb-4 p-3 border-b border-blue-100 hover:bg-blue-50 rounded-lg transition-all cursor-pointer"
             >
-              <p className="text-[#004088] font-medium">{notification.message}</p>
-              <p className="flex items-center gap-1 text-gray-400 text-sm ml-1">
+              <p className="text-[#003f87] font-medium">{notification.message}</p>
+              <p className="flex items-center gap-1 text-gray-500 text-sm ml-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -118,10 +118,10 @@ function NotificationsPanel() {
           {notifications.map((notification) => (
             <div
               key={`duplicate-${notification.id}`}
-              className="notification group w-full flex flex-col gap-1 mb-4 p-3 border-b border-gray-100 hover:bg-blue-50 rounded-lg transition-all cursor-pointer"
+              className="notification group w-full flex flex-col gap-1 mb-4 p-3 border-b border-blue-100 hover:bg-blue-50 rounded-lg transition-all cursor-pointer"
             >
-              <p className="text-[#004088] font-medium">{notification.message}</p>
-              <p className="flex items-center gap-1 text-gray-400 text-sm ml-1">
+              <p className="text-[#003f87] font-medium">{notification.message}</p>
+              <p className="flex items-center gap-1 text-gray-500 text-sm ml-1">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4"
@@ -140,6 +140,11 @@ function NotificationsPanel() {
             </div>
           ))}
         </div>
+      </div>
+      <div className="bg-gray-50 text-center p-2 border-t border-gray-100">
+        <button className="text-sm text-[#003f87] font-medium hover:underline transition-all">
+          View All Events
+        </button>
       </div>
     </div>
   );

@@ -71,9 +71,8 @@ const WellnessCenter = () => {
         {/* Contact Box */}
         <div className="text-center p-8 rounded-lg mt-8">
           <h3 className="text-2xl font-semibold">Still Have Questions?</h3>
-          <p className="mt-2">Contact us directly for any queries not addressed above:</p>
-          <p className="mt-2"><strong>Email:</strong> wellness@iitjammu.ac.in</p>
-          <p><strong>Helpline:</strong> 0191-XXX-XXXX (24/7 Support)</p>
+          <p className="mt-2">Contact us for any queries not addressed above:</p>
+          <a href="mailto:counsellingservices@iitjammu.ac.in" className="mt-2">counsellingservices@iitjammu.ac.in</a>
         </div>
       </div>
 

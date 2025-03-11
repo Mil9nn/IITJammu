@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as Dialog from "@radix-ui/react-dialog";
 import * as Select from "@radix-ui/react-select";
 import { Calendar, Clock, X, Mail, Phone, Globe, User } from "lucide-react";
@@ -8,14 +8,9 @@ const AppointmentBooking = () => {
   const today = new Date();
 
   // Initialize EmailJS
-  const initEmailJS = () => {
+  useEffect(() => {
     // Replace with your actual EmailJS public key
     emailjs.init("KniHu1m19uqHKrqKD");
-  };
-
-  // Call initialization once when component mounts
-  useState(() => {
-    initEmailJS();
   }, []);
 
   const generateDates = () => {
@@ -89,8 +84,8 @@ const AppointmentBooking = () => {
     return null; // No validation errors
   };
 
-  // Function to send email notification
-  const sendEmailNotification = async (appointmentData) => {
+  // Function to send email notification using EmailJS
+  const sendEmailNotification = async () => {
     try {
       // Get appointment type label for email
       const appointmentTypes = {
@@ -100,18 +95,18 @@ const AppointmentBooking = () => {
         virtual: "Virtual Appointment"
       };
       
-      const appointmentTypeLabel = appointmentTypes[appointmentData.appointmentType] || appointmentData.appointmentType;
+      const appointmentTypeLabel = appointmentTypes[appointmentDetails.appointmentType] || appointmentDetails.appointmentType;
       
       // Prepare template parameters
       const templateParams = {
         to_email: "hallucinatory3@gmail.com", // Replace with your notification email
-        from_name: appointmentData.name,
-        from_email: appointmentData.email,
-        phone: appointmentData.phone,
-        appointment_date: formatDate(new Date(appointmentData.date)),
-        appointment_time: appointmentData.time,
+        from_name: appointmentDetails.name,
+        from_email: appointmentDetails.email,
+        phone: appointmentDetails.phone,
+        appointment_date: formatDate(selectedDate),
+        appointment_time: selectedTime,
         appointment_type: appointmentTypeLabel,
-        subject: `New Appointment Request: ${appointmentData.name} - ${formatDate(new Date(appointmentData.date))} at ${appointmentData.time}`
+        subject: `New Appointment Request: ${appointmentDetails.name} - ${formatDate(selectedDate)} at ${selectedTime}`
       };
 
       // Send the email using EmailJS
@@ -142,34 +137,14 @@ const AppointmentBooking = () => {
     setSubmitFeedback({ message: "", isError: false });
 
     try {
-      const appointmentData = {
-        ...appointmentDetails,
-        date: selectedDate.toISOString(), // Store as ISO string
-        time: selectedTime,
-        status: "pending", // Default status
-      };
+      // Send email notification with EmailJS
+      const emailSent = await sendEmailNotification();
 
-      // 1. Send to your API endpoint
-      const response = await fetch("http://localhost:5000/api/appointments", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(appointmentData),
-      });
-
-      const data = await response.json();
-
-      // 2. Send email notification
-      const emailSent = await sendEmailNotification(appointmentData);
-
-      if (response.ok) {
-        let successMessage = "Appointment booked successfully!";
-        if (!emailSent) {
-          successMessage += " (Note: Email notification could not be sent, but your appointment is confirmed)";
-        }
-        
-        setSubmitFeedback({ message: successMessage, isError: false });
+      if (emailSent) {
+        setSubmitFeedback({ 
+          message: "Appointment request sent successfully! We'll contact you to confirm your appointment.", 
+          isError: false 
+        });
         
         // Reset form after short delay
         setTimeout(() => {
@@ -182,12 +157,15 @@ const AppointmentBooking = () => {
             phone: "",
             appointmentType: "",
           });
-        }, 1500);
+        }, 2000);
       } else {
-        setSubmitFeedback({ message: data.message || "Failed to book appointment", isError: true });
+        setSubmitFeedback({ 
+          message: "Failed to send appointment request. Please try again or contact us directly.", 
+          isError: true 
+        });
       }
     } catch (error) {
-      console.error("Error booking appointment:", error);
+      console.error("Error sending appointment request:", error);
       setSubmitFeedback({ 
         message: "Network error. Please check your connection and try again.", 
         isError: true 
@@ -201,7 +179,7 @@ const AppointmentBooking = () => {
     <div className="w-full max-w-4xl mx-auto p-4">
       <h2 className="text-2xl font-bold text-gray-800 mb-4">Schedule an Appointment</h2>
       
-      {/* New booking options description section */}
+      {/* Booking options description section */}
       <div className="bg-blue-50 p-6 rounded-lg mb-8">
         <h3 className="text-lg font-semibold text-gray-800 mb-3">Ways to Book Your Appointment</h3>
         <p className="text-gray-700 mb-4">We offer multiple convenient ways to schedule your appointment. Choose the option that works best for you:</p>
@@ -405,7 +383,7 @@ const AppointmentBooking = () => {
                 onClick={handleSubmitAppointment}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Booking..." : "Confirm Booking"}
+                {isSubmitting ? "Sending..." : "Confirm Booking"}
               </button>
             </div>
           </Dialog.Content>

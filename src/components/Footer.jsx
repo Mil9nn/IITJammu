@@ -105,9 +105,10 @@ const EnhancedFooter = () => {
               </a>
             </div>
             <div className="text-sm text-blue-200">
-              <p className="mb-2">IIT Jammu, Nagrota 600036</p>
-              <p className="mb-2">Email: counselling.services@iitjammu.ac.in</p>
-              <p>Main Office: 0191-2570730</p>
+              <p className="mb-2">Indian Institute of Technology Jammu</p>
+                <p>Jagti, NH-44</p>
+                <p>Nagrota, Jammu, 181221</p>
+                <p>Jammu & Kashmir, India</p>
             </div>
           </div>
         </div>
