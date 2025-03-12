@@ -11,12 +11,33 @@ const EventCalendar = () => {
   const [selectedDay, setSelectedDay] = useState(null);
   const [selectedDayEvents, setSelectedDayEvents] = useState([]);
 
-  // Sample events data
+  // Updated events data with the new events from the image
   const events = [
-    { id: 1, date: createDate(2025, 3, 15), title: "Treasure Hunt", time: "10:00 AM", location: "Wellness Center" },
-    { id: 2, date: createDate(2025, 3, 18), title: "Awaz-e-Dil", time: "2:30 PM", location: "Room B204" },
-    { id: 3, date: createDate(2025, 3, 25), title: "Lorem ipsum dolor sit amet consectetur adipisicing.", time: "4:00 PM", location: "Counseling Suite" },
-    { id: 4, date: createDate(2025, 3, 28), title: "Mental Health Awareness Talk", time: "11:30 AM", location: "Main Auditorium" }
+    { id: 1, date: createDate(2025, 2, 21), title: "Relaxation Session", time: "", location: "Hostel" },
+    { id: 2, date: createDate(2025, 2, 25), title: "Team Building Session", time: "", location: "Staff and Faculty" },
+    { id: 3, date: createDate(2025, 2, 27), title: "Sneh Session", time: "", location: "" },
+    { id: 4, date: createDate(2025, 2, 28), title: "Gatekeeper Training Program", time: "", location: "Staff" },
+    { id: 5, date: createDate(2025, 2, 28), title: "Suicide Prevention Program", time: "", location: "Staff" },
+    { id: 6, date: createDate(2025, 3, 1), title: "Open Mic", time: "", location: "" },
+    { id: 7, date: createDate(2025, 3, 8), title: "Fun Games", time: "", location: "Hostel" },
+    { id: 8, date: createDate(2025, 3, 19), title: "Life Skills Workshop - Empowering Growth and Resilience", time: "3:00 PM - 4:00 PM" },
+  
+    // Recurring Counselor Meetings on Fridays
+  
+    { id: 16, date: createDate(2025, 3, 21), title: "Counselor Meeting", time: "3:00 PM - 4:00 PM", location: "Braeg, Dedhar" },
+    { id: 17, date: createDate(2025, 3, 21), title: "Counselor Meeting", time: "4:15 PM - 5:15 PM", location: "Egret, Fulgar" },
+  
+    { id: 18, date: createDate(2025, 3, 28), title: "Counselor Meeting", time: "3:00 PM - 4:00 PM", location: "Egret, Braeg" },
+    { id: 19, date: createDate(2025, 3, 28), title: "Counselor Meeting", time: "4:15 PM - 5:15 PM", location: "Fulgar, Dedhar" },
+
+    { id: 18, date: createDate(2025, 4, 4), title: "Counselor Meeting", time: "3:00 PM - 4:00 PM", location: "Fulgar, Dedhar" },
+    { id: 19, date: createDate(2025, 4, 4), title: "Counselor Meeting", time: "4:15 PM - 5:15 PM", location: "Braeg, Egret" },
+
+    { id: 18, date: createDate(2025, 4, 11), title: "Counselor Meeting", time: "3:00 PM - 4:00 PM", location: "Braeg, Egret" },
+    { id: 19, date: createDate(2025, 4, 11), title: "Counselor Meeting", time: "4:15 PM - 5:15 PM", location: "Dedhar, Fulgar" },
+
+    { id: 18, date: createDate(2025, 4, 25), title: "Counselor Meeting", time: "3:00 PM - 4:00 PM", location: "Egret, Fulgar" },
+    { id: 19, date: createDate(2025, 4, 25), title: "Counselor Meeting", time: "4:15 PM - 5:15 PM", location: "Braeg, Dedhar" },
   ];
 
   // Generate a consistent color based on event title - creates mapping of event title to color classes
