@@ -47,12 +47,7 @@ const MentalHealthResources = () => {
         title: 'Depression Explained',
         description: 'Understanding depression, its impact, and evidence-based approaches to recovery.',
         videoId: 'z-IR48Mb3W0'
-      },
-      {
-        title: 'PTSD Guide',
-        description: 'Exploring trauma responses and effective therapies for post-traumatic stress disorder.',
-        videoId: 'qlYvyPtYcwc'
-      },
+      }
     ],
     coping: [
       {
