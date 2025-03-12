@@ -106,7 +106,7 @@ const EventCalendar = () => {
     setAllEvents([...regularEvents, ...holidays]);
   }, [holidayData]);
 
-  // Generate a consistent color based on event title - simplified to remove type differentiations
+  // Generate a consistent color based on event title - creates mapping of event title to color classes
   const getEventClasses = () => {
     const eventColors = {};
     const colorOptions = [
@@ -122,11 +122,33 @@ const EventCalendar = () => {
       { cell: 'bg-cyan-100 text-cyan-800 border-cyan-200', panel: 'border-cyan-300 bg-cyan-50' }
     ];
 
+    // Special colors for event types
+    const typeColors = {
+      "Government Holiday": { cell: 'bg-red-100 text-red-800 border-red-200', panel: 'border-red-300 bg-red-50' },
+      "Religional Festival": { cell: 'bg-orange-100 text-orange-800 border-orange-200', panel: 'border-orange-300 bg-orange-50' },
+      "Good to know": { cell: 'bg-blue-100 text-blue-800 border-blue-200', panel: 'border-blue-300 bg-blue-50' },
+      "Counselor Meeting": { cell: 'bg-green-100 text-green-800 border-green-200', panel: 'border-green-300 bg-green-50' }
+    };
+
     // Get unique event titles
     const uniqueTitles = [...new Set(allEvents.map(event => event.title))];
+    const uniqueTypes = [...new Set(allEvents.filter(event => event.isHoliday).map(event => event.location))];
+
+    // Add special colors for types
+    uniqueTypes.forEach(type => {
+      if (typeColors[type]) {
+        eventColors[type] = typeColors[type];
+      }
+    });
 
     // Assign colors to each unique title
     uniqueTitles.forEach((title, index) => {
+      // Special color for counselor meetings
+      if (title === "Counselor Meeting" && typeColors["Counselor Meeting"]) {
+        eventColors[title] = typeColors["Counselor Meeting"];
+        return;
+      }
+
       // Use a hash function for more distributed colors
       let hash = 0;
       for (let i = 0; i < title.length; i++) {
@@ -224,6 +246,8 @@ const EventCalendar = () => {
         selectedDay.getMonth() === month &&
         selectedDay.getFullYear() === year;
   
+      const hasHoliday = dayEvents.some(event => event.isHoliday);
+  
       days.push(
         <div
           key={day}
@@ -233,6 +257,7 @@ const EventCalendar = () => {
           <div className="flex justify-between items-center mb-1">
             <span className={`text-sm font-medium rounded-full w-5 h-5 flex items-center justify-center ${
               isSelected ? 'bg-[#003f87] text-white' : 
+              hasHoliday ? 'bg-red-500 text-white' : 
               dayEvents.length > 0 ? 'bg-[#003f87] text-white' : 
               'text-gray-700'
             }`}>
@@ -243,7 +268,11 @@ const EventCalendar = () => {
             {dayEvents.slice(0, 2).map((event, idx) => (
               <div
                 key={idx}
-                className={`text-xs p-1 rounded truncate border ${eventColorMap[event.title]?.cell || 'bg-gray-100 text-gray-800 border-gray-200'}`}
+                className={`text-xs p-1 rounded truncate border ${
+                  event.isHoliday ? 
+                  eventColorMap[event.location]?.cell || 'bg-red-100 text-red-800 border-red-200' : 
+                  eventColorMap[event.title]?.cell || 'bg-gray-100 text-gray-800 border-gray-200'
+                }`}
                 title={event.title}
               >
                 {event.title}
@@ -299,7 +328,7 @@ const EventCalendar = () => {
     );
   };
 
-  // Event details panel with absolute positioning
+  // Event details panel
   const renderEventDetails = () => {
     if (!selectedDay) return null;
 
@@ -311,7 +340,7 @@ const EventCalendar = () => {
     });
 
     return (
-      <div className="bg-white p-4 rounded-lg shadow absolute top-[0%] left-[33%] transform -translate-x-1/2 z-10 w-11/12 md:w-3/4 lg:w-2/3 max-h-96 overflow-y-auto border border-gray-200">
+      <div className="bg-white p-4 rounded-lg shadow mt-4 absolute left-0 top-[-15px]">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-bold text-[#003f87]">{formattedDate}</h3>
           <button
@@ -330,12 +359,17 @@ const EventCalendar = () => {
             {selectedDayEvents.map((event) => (
               <div 
                 key={event.id} 
-                className={`p-3 rounded-lg border ${eventColorMap[event.title]?.panel || 'border-gray-300 bg-gray-50'}`}
+                className={`p-3 rounded-lg border ${
+                  event.isHoliday ? 
+                  eventColorMap[event.location]?.panel || 'border-red-300 bg-red-50' : 
+                  eventColorMap[event.title]?.panel || 'border-gray-300 bg-gray-50'
+                }`}
               >
                 <h4 className="font-medium text-gray-800">{event.title}</h4>
                 {event.time && <p className="text-sm text-gray-600 mt-1">{event.time}</p>}
                 {event.location && <p className="text-sm text-gray-600 mt-1">{event.location}</p>}
                 {event.extras && <p className="text-sm text-gray-600 mt-1">{event.extras}</p>}
+                {event.isHoliday && <p className="text-sm font-medium mt-1">{event.location}</p>}
               </div>
             ))}
           </div>
@@ -346,9 +380,9 @@ const EventCalendar = () => {
 
   return (
     <div className="max-w-5xl mx-auto p-4">
-      <div className="relative">
+      <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4 relative">
         {renderCalendar()}
-        {selectedDay && renderEventDetails()}
+        {renderEventDetails()}
       </div>
     </div>
   );
