@@ -1,17 +1,9 @@
-import { useState } from "react";
 import Carousel from '../components/Carousel';
-import NotificationsPanel from '../components/NotificationsPanel';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import {
-  Shield,
-  Lock,
-  Users,
-  Calendar,
-  Phone,
-  AlertTriangle
-} from 'lucide-react';
+import { Calendar, Phone } from 'lucide-react';
+import EventCalendar from "../components/EventCalendar";
 
-const EnhancedHeroSection = () => {
+function EnhancedHeroSection () {
   return (
     <div className="bg-gradient-to-b from-blue-50 to-white">
       {/* Hero Section */}
@@ -88,10 +80,10 @@ const EnhancedHeroSection = () => {
               {/* Right side panel - takes 1/3 of the space on larger screens */}
               <div className="md:col-span-1 flex flex-col gap-8"> {/* Increased gap between elements */}
                 {/* Book Appointment Button */}
-                <div className="bg-gray-50 p-6 rounded-lg border border-gray-100 shadow-sm">
+                <div className="p-6 rounded-lg">
                   <Link
-                    to="/book-appointment"
-                    className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#003f87] text-white font-semibold rounded-lg
+                    to="/appointments"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-3 bg-[#003f87] text-white font-semibold rounded-full
                         transition-all duration-300 hover:bg-[#00305e] transform hover:-translate-y-1 shadow-md"
                   >
                     <Calendar size={18} />
@@ -104,8 +96,8 @@ const EnhancedHeroSection = () => {
                   <h3 className="text-lg font-semibold text-[#003f87] mb-4">Emergency Helplines</h3>
                   
                   {/* Telemanas Contact */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-l-[#003f87] mb-4">
-                    <h4 className="font-semibold text-gray-800 text-sm mb-2">Telemanas Helpline</h4>
+                  <div className="bg-white p-4 rounded-md shadow-sm border-l-5 border-l-[#003f87] mb-4">
+                    <h4 className="font-semibold text-gray-800 text-sm mb-2">Telemanas</h4>
                     <div className="flex items-center gap-2 text-[#003f87] font-bold">
                       <Phone size={16} className="flex-shrink-0" />
                       <a href="tel:14416" className="hover:underline">14416/1-800-891-4416</a>
@@ -113,8 +105,8 @@ const EnhancedHeroSection = () => {
                   </div>
                   
                   {/* iCall Contact */}
-                  <div className="bg-white p-4 rounded-lg shadow-sm border-l-4 border-l-[#003f87]">
-                    <h4 className="font-semibold text-gray-800 text-sm mb-2">iCall Helpline</h4>
+                  <div className="bg-white p-4 rounded-md shadow-sm border-l-5 border-l-[#003f87]">
+                    <h4 className="font-semibold text-gray-800 text-sm mb-2">iCall</h4>
                     <div className="flex items-center gap-2 text-[#003f87] font-bold">
                       <Phone size={16} className="flex-shrink-0" />
                       <a href="tel:9152987821" className="hover:underline">9152987821</a>
@@ -138,7 +130,9 @@ const EnhancedHeroSection = () => {
           <div className="lg:col-span-2 rounded-xl overflow-hidden shadow-lg">
             <Carousel />
           </div>
-          <NotificationsPanel />
+          <div className="bg-gray-50 p-4 rounded-xl shadow-lg">
+            <EventCalendar />
+          </div>
         </div>
       </div>
     </div>

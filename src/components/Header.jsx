@@ -40,11 +40,11 @@ const Header = () => {
   const navLinks = [
     { path: "/", label: "Home" },
     { path: "/about-us", label: "About Us" },
+    { path: "/team", label: "Team" },
     { path: "/resources", label: "Resources" },
     { path: "/events", label: "Events" },
     { path: "/appointments", label: "Appointment" },
-    { path: "/faqs", label: "FAQs" },
-    { path: "/contact-us", label: "Contact Us" },
+    { path: "/faqs", label: "FAQs" }
   ];
 
   const renderNavLink = (path, label, isMobile = false) => {
