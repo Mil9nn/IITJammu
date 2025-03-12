@@ -91,7 +91,6 @@ const AppointmentBooking = () => {
       const appointmentTypes = {
         consultation: "General Consultation",
         followup: "Follow-up Visit",
-        emergency: "Urgent Care",
         virtual: "Virtual Appointment"
       };
       
@@ -349,9 +348,6 @@ const AppointmentBooking = () => {
                       </Select.Item>
                       <Select.Item value="followup" className="p-2 hover:bg-gray-100 cursor-pointer">
                         <Select.ItemText>Follow-up Visit</Select.ItemText>
-                      </Select.Item>
-                      <Select.Item value="emergency" className="p-2 hover:bg-gray-100 cursor-pointer">
-                        <Select.ItemText>Urgent Care</Select.ItemText>
                       </Select.Item>
                       <Select.Item value="virtual" className="p-2 hover:bg-gray-100 cursor-pointer">
                         <Select.ItemText>Virtual Appointment</Select.ItemText>
