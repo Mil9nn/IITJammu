@@ -13,12 +13,6 @@ const Testimonials = () => {
       name: 'Priya Sharma',
       position: 'B.Tech Student, Computer Science',
       content: 'The counseling services helped me navigate the stress of my final year projects and placements. Their mindfulness workshops gave me practical tools to manage my anxiety.'
-    },
-    {
-      id: 3,
-      name: 'Dr. Rajiv Kumar',
-      position: 'Faculty, Mechanical Engineering',
-      content: "I've personally recommended several of my students to the wellness center. The staff's professionalism and the confidential nature of their services make them a valuable resource for our campus community."
     }
   ];
 

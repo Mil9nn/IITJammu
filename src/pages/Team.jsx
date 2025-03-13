@@ -1,41 +1,42 @@
 import { MessageCircle, Phone } from "lucide-react";
+import CompactFooter from "../components/CompactFooter";
 
 const counselors = [
     {
-      name: "Himanshi Singh",
-      role: "Clinical Psychologist",
-      image: "/images/karunika.webp",
-      email: "himanshi.singh@iitjammu.ac.in",
-      phone: "+91 9797894944",
-      description: "M.Phil in Clinical Psychology and experience at premier institutions like AIIMS, New Delhi. Specializes in psychological assessments and therapies for depression, anxiety, OCD, trauma, substance use, and relationship issues.",
-      specialties: ["Depression", "Anxiety", "Trauma", "Relationship Counseling"]
+        name: "Himanshi Singh",
+        role: "Clinical Psychologist",
+        image: "/images/karunika.webp",
+        email: "himanshi.singh@iitjammu.ac.in",
+        phone: "+91 9797894944",
+        description: "M.Phil in Clinical Psychology and experience at premier institutions like AIIMS, New Delhi. Specializes in psychological assessments and therapies for depression, anxiety, OCD, trauma, substance use, and relationship issues.",
+        specialties: ["Depression", "Anxiety", "Trauma", "Relationship Counseling"]
     },
     {
-      name: "Nandita Sharma",
-      role: "Institute Counsellor",
-      image: "/images/nandita.webp",
-      email: "nandita.sharma@iitjammu.ac.in",
-      phone: "+91 9033961612",
-      description: "Extensive experience in academic research and practice across medical institutions, NGOs, and schools. Specializing in stress, self-esteem, relationship issues, addiction, trauma, LGBTQIA+ concerns, anger, and procrastination.",
-      specialties: ["Stress Management", "Self-esteem", "Addiction", "LGBTQIA+ Support"]
+        name: "Nandita Sharma",
+        role: "Institute Counsellor",
+        image: "/images/nandita.webp",
+        email: "nandita.sharma@iitjammu.ac.in",
+        phone: "+91 9033961612",
+        description: "Extensive experience in academic research and practice across medical institutions, NGOs, and schools. Specializing in stress, self-esteem, relationship issues, addiction, trauma, LGBTQIA+ concerns, anger, and procrastination.",
+        specialties: ["Stress Management", "Self-esteem", "Addiction", "LGBTQIA+ Support"]
     }
 ];
 
 // Student Members data - add actual details when available
 const studentMembers = [
     {
-      name: "Student Member 1",
-      role: "Student Representative",
-      image: "/images/student1.webp",
-      email: "student1@iitjammu.ac.in",
-      description: "Brief description of student member's role and contributions to the Medical Centre."
+        name: "Student Member 1",
+        role: "Student Representative",
+        image: "/images/student1.webp",
+        email: "student1@iitjammu.ac.in",
+        description: "Brief description of student member's role and contributions to the Medical Centre."
     },
     {
-      name: "Student Member 2",
-      role: "Student Representative",
-      image: "/images/student2.webp",
-      email: "student2@iitjammu.ac.in",
-      description: "Brief description of student member's role and contributions to the Medical Centre."
+        name: "Student Member 2",
+        role: "Student Representative",
+        image: "/images/student2.webp",
+        email: "student2@iitjammu.ac.in",
+        description: "Brief description of student member's role and contributions to the Medical Centre."
     }
     // Add more student members as needed
 ];
@@ -66,24 +67,24 @@ function Team() {
                         <div className="prose prose-lg text-gray-700">
                             <p className="italic font-medium mb-4">Dear IIT Jammu family,</p>
                             <p className="mb-3">
-                                As you and your loved ones engage in important academic and personal pursuits on and around campus, 
-                                we encourage you to maintain a healthy lifestyle. When care is needed, we are here to ensure that 
-                                health and well-being are the least of your concerns while you make significant contributions to 
+                                As you and your loved ones engage in important academic and personal pursuits on and around campus,
+                                we encourage you to maintain a healthy lifestyle. When care is needed, we are here to ensure that
+                                health and well-being are the least of your concerns while you make significant contributions to
                                 academics, research, and society.
                             </p>
                             <p className="mb-3">
-                                The Medical Centre provides 24/7 support through doctor consultations, minor surgical procedures, 
-                                medications, and regular laboratory testing. When specialized care is required, we facilitate 
+                                The Medical Centre provides 24/7 support through doctor consultations, minor surgical procedures,
+                                medications, and regular laboratory testing. When specialized care is required, we facilitate
                                 transportation to the nearest specialized treatment facilities.
                             </p>
                             <p className="mb-3">
-                                Our dedicated team is committed to providing exceptional medical care, ensuring you have a safe 
-                                and healthy experience at IIT Jammu. We welcome you to contact us with any health-related 
+                                Our dedicated team is committed to providing exceptional medical care, ensuring you have a safe
+                                and healthy experience at IIT Jammu. We welcome you to contact us with any health-related
                                 concerns or questions.
                             </p>
                             <p className="mb-3">
-                                To our esteemed colleagues, your continued cooperation and dedication play a vital role in 
-                                maintaining a supportive environment for our students. Together, we can foster a community 
+                                To our esteemed colleagues, your continued cooperation and dedication play a vital role in
+                                maintaining a supportive environment for our students. Together, we can foster a community
                                 where everyone thrives.
                             </p>
                             <p className="font-medium">Best wishes for a healthy and productive future.</p>
@@ -206,6 +207,7 @@ function Team() {
                 </div>
             </div>
         </div>
+        <CompactFooter />
     </>
 }
 

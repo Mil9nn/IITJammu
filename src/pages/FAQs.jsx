@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import CompactFooter from "../components/CompactFooter";
 
 const WellnessCenter = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -34,15 +35,6 @@ const WellnessCenter = () => {
               contacting an <span className="font-semibold">Institute Counselor.</span>
             </p>
           </div>
-          {/* Service Hours Section */}
-          <div className="flex flex-wrap justify-around gap-4 my-8">
-            <div className="bg-white p-6 rounded-md shadow-sm border-l-4 border-orange-500 flex-1 min-w-[300px]">
-              <h3 className="text-xl font-semibold text-indigo-900">Wellness Center Hours</h3>
-              <p className="mt-2"><strong>Weekdays:</strong> 9:30 AM - 5:30 PM</p>
-              <p><strong>Weekends:</strong> By Appointment Only</p>
-              <p><strong>Emergency:</strong> 24/7 Support Available</p>
-            </div>
-          </div>
         </div>
 
         {/* FAQ Section */}
@@ -75,11 +67,7 @@ const WellnessCenter = () => {
           <a href="mailto:counsellingservices@iitjammu.ac.in" className="mt-2">counsellingservices@iitjammu.ac.in</a>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-[#003f87] text-white text-center py-4 mt-8">
-        <p>© 2025 Indian Institute of Technology Jammu | Wellness Center</p>
-      </footer>
+      <CompactFooter />
     </div>
   );
 };

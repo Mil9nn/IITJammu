@@ -106,11 +106,10 @@ const Header = () => {
           <li>
             <a
               href="https://www.iitjammu.ac.in/medical-centre/"
-              className="px-3 py-2 rounded-full transition-all duration-500 group flex items-center gap-1 relative overflow-hidden text-black 
-               before:absolute before:inset-0 before:bg-[#0062cc] before:translate-x-[-100%] before:transition-transform before:duration-500 hover:before:translate-x-0"
+              className="flex items-center gap-1.5 text-black hover:scale-[1.1] hover:underline transition-all"
             >
               <span className="relative z-10">Medical Center</span>
-              <MoveRight className="h-4 w-4 relative z-10" />
+              <MoveRight className="h-4 w-4 relative z-10 mt-1" />
             </a>
           </li>
 

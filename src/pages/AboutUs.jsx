@@ -2,6 +2,7 @@
 
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Testimonials from '../components/Testimonials';
+import CompactFooter from "../components/CompactFooter";
 
 function AboutUs() {
 
@@ -197,7 +198,7 @@ function AboutUs() {
         </div>
       </div>
       <Testimonials />
-
+      <CompactFooter />
     </div>
   );
 }

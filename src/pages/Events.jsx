@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import CompactFooter from "../components/CompactFooter";
 
 const WellnessCenterEvents = () => {
   // State for events data, carousel, and modal
@@ -211,6 +212,7 @@ const WellnessCenterEvents = () => {
           </div>
         </div>
       )}
+      <CompactFooter />
     </div>
   );
 };
