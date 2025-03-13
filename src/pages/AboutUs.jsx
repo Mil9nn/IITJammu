@@ -85,7 +85,7 @@ function AboutUs() {
             {/* Service 01 - Mental Health Support */}
             <div className="service bg-white rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group">
               <div className="img-wrapper h-48 overflow-hidden">
-                <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="/images/mental-health-support.webp" alt="Mental Health Support" loading="lazy" />
+                <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="/images/mental-health-support.png" alt="Mental Health Support" loading="lazy" />
               </div>
               <div className="p-6">
                 <div className="flex items-center mb-3">
@@ -138,7 +138,7 @@ function AboutUs() {
             {/* Service 02 - Academic Support */}
             <div className="service bg-white rounded-xl overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 group">
               <div className="img-wrapper h-48 overflow-hidden">
-                <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="/images/academic-support.webp" alt="Academic Support" loading="lazy" />
+                <img className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="/images/academic-support.png" alt="Academic Support" loading="lazy" />
               </div>
               <div className="p-6">
                 <div className="flex items-center mb-3">
