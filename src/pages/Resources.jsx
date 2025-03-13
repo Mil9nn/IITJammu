@@ -152,7 +152,7 @@ const MentalHealthResources = () => {
       )}
 
       {/* Tabs navigation - Styled to match the team component */}
-      <nav className="bg-white shadow-md sticky top-0 z-10">
+      <nav className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 sticky top-0">
         <div className="max-w-6xl mx-auto overflow-x-auto">
           <div className="flex space-x-1 p-2 min-w-max">
             {Object.entries(tabData).map(([key, data]) => (

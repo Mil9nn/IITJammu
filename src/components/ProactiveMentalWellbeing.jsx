@@ -87,7 +87,7 @@ const ProactiveMentalWellbeing = () => {
   };
 
   return (
-    <section className="py-12 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50">
+    <section className="py-12">
       <div className="container mx-auto px-4">
 
         {/* Ask the Counselor Tab */}
