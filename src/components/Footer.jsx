@@ -7,7 +7,7 @@ const EnhancedFooter = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold border-b-2 border-blue-500 pb-2 inline-block">Quick Links</h3>
             <ul className="space-y-2">
-              {["Anti-Ragging", "Hall Bookings", "LED Displays", "Student Forms", "Student Policies", "Temporary Accommodation", "Taramani Guest House"].map((link, index) => (
+              {["Anti-Ragging", ].map((link, index) => (
                 <li key={index}>
                   <a href="https://iitjammu.ac.in/anti-ragging" className="text-blue-200 hover:text-white transition-all duration-300 flex items-center group">
                     <span className="transform group-hover:translate-x-1 transition-transform duration-300">&raquo;</span>
@@ -57,7 +57,7 @@ const EnhancedFooter = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold border-b-2 border-blue-500 pb-2 inline-block">Connect With Us</h3>
             <div className="flex space-x-4 mb-4">
-              <a href="https://www.facebook.com/IITJammuOfficial/" className="bg-[#007fc6] hover:bg-[#ff0000c9] p-2 rounded-full transition-colors duration-300">
+              <a href="https://www.facebook.com/IITJammuOfficial/" className="bg-[#007fc6] hover:bg-[tomato] p-2 rounded-full transition-colors duration-300">
                 <div className="w-5 h-5 flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                     <path
@@ -71,7 +71,7 @@ const EnhancedFooter = () => {
                   </svg>
                 </div>
               </a>
-              <a href="https://www.instagram.com/iit.jammu/" className="bg-[#007fc6] hover:bg-[#ff0000c9] p-2 rounded-full transition-colors duration-300">
+              <a href="https://www.instagram.com/iit.jammu/" className="bg-[#007fc6] hover:bg-[tomato] p-2 rounded-full transition-colors duration-300">
                 <div className="w-5 h-5 flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                     <path
@@ -85,7 +85,7 @@ const EnhancedFooter = () => {
                   </svg>
                 </div>
               </a>
-              <a href="https://www.linkedin.com/school/iitjammu/" className="bg-[#007fc6] hover:bg-[#ff0000c9] p-2 rounded-full transition-colors duration-300">
+              <a href="https://www.linkedin.com/school/iitjammu/" className="bg-[#007fc6] hover:bg-[tomato] p-2 rounded-full transition-colors duration-300">
                 <div className="w-5 h-5 flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
                     <path

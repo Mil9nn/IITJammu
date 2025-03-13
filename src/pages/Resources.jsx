@@ -103,17 +103,14 @@ const MentalHealthResources = () => {
   return (
     <div className="min-h-screen">
       {/* Header with gradient background matching Team component */}
-      <header className="bg-gradient-to-r from-rose-50 to-amber-50 py-16 relative">
+      <header className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-16 relative">
         {/* Background decorative elements */}
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-200 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-200 to-transparent"></div>
         
         <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-indigo-600 mb-4">Mental Health Resources</h1>
-          <div className="h-1 w-20 bg-gradient-to-r from-amber-400 to-rose-400 mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-            Supporting your journey to mental wellness with evidence-based information and tools
-          </p>
+          <h1 className="text-4xl font-bold text-indigo-600 mb-4">Encouraging Proactive Mental Well-Being</h1>
+          <p className="text-purple-700 max-w-2xl mx-auto">Take care of your mind with proactive approaches to mental wellness</p>
         </div>
       </header>
 

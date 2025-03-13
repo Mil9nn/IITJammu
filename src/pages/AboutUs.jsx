@@ -36,12 +36,11 @@ function AboutUs() {
                 <span className="absolute inset-0 bg-rose-600 opacity-0 scale-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-500 ease-out rounded-full"></span>
               </Link>
 
-              <a
-                href="/ContactUs.jsx"
+              <Link to="/resources"
                 className="px-6 py-3 border-2 border-white text-white font-semibold rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-white/20 hover:border-transparent"
               >
-                Contact Us
-              </a>
+                Resources
+              </Link>
             </div>
           </div>
         </div>
