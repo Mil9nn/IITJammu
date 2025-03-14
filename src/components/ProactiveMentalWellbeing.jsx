@@ -36,8 +36,8 @@ const ProactiveMentalWellbeing = () => {
     setFormStatus({ submitted: true, error: false, message: 'Submitting your question...' });
 
     try {
-      // Initialize EmailJS with your user ID (only needs to be done once)
-      emailjs.init("KniHu1m19uqHKrqKD");
+      // Initialize EmailJS with your user ID from environment variables
+      emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID);
 
       // Prepare template parameters for EmailJS
       const templateParams = {
@@ -46,10 +46,10 @@ const ProactiveMentalWellbeing = () => {
         timestamp: new Date().toISOString(),
       };
 
-      // Send email using EmailJS
+      // Send email using EmailJS with service ID and template ID from environment variables
       const response = await emailjs.send(
-        "service_ev9dr4z",
-        "template_0gaeqnu",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         templateParams
       );
 
@@ -182,7 +182,6 @@ const ProactiveMentalWellbeing = () => {
                   {counselorQA.map((item, index) => (
                     <div
                       key={item.id}
-
                     >
                       <div className="mb-4">
                         <h4 className={`text-lg font-semibold ${index % 3 === 0 ? 'text-purple-700' :
