@@ -1,24 +1,33 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Lightbulb, RefreshCw } from 'lucide-react';
 
 const DailyTipComponent = () => {
   const [currentTip, setCurrentTip] = useState(null);
+  const [isChanging, setIsChanging] = useState(false);
 
   const tips = [
-    { text: "Take 5 deep breaths when feeling overwhelmed. Inhale for 4 counts, hold for 2, exhale for 6.", category: "Stress Relief" },
-    { text: "Today, write down three things you're grateful for, no matter how small they seem.", category: "Gratitude" },
-    { text: "Struggling with a problem? Try the 5-minute rule: work on it for just 5 minutes, then reassess.", category: "Focus" },
-    { text: "Remember that asking for help is a sign of strength, not weakness.", category: "Support" },
-    { text: "Stay hydrated! Proper hydration improves mood, cognition, and physical performance.", category: "Physical Wellness" },
-    { text: "Try the 20-20-20 rule when studying: Every 20 minutes, look at something 20 feet away for 20 seconds.", category: "Study Habits" },
-    { text: "Remember: Your worth isn't measured by your productivity or academic performance.", category: "Self-Worth" }
+    { text: "Get regular exercise. Just 30 minutes of walking every day can boost your mood and improve your health. Small amounts of exercise add up, so don’t be discouraged if you can’t do 30 minutes at one time.", category: "Physical Wellness" },
+    { text: "Eat healthy, regular meals and stay hydrated. A balanced diet and plenty of water can improve your energy and focus throughout the day. Pay attention to your intake of caffeine and alcohol and how they affect your mood and well-being—for some, decreasing caffeine and alcohol consumption can be helpful.", category: "Physical Wellness" },
+    { text: "Make sleep a priority. Stick to a schedule, and make sure you’re getting enough sleep. Blue light from devices and screens can make it harder to fall asleep, so reduce blue light exposure from your phone or computer before bedtime.", category: "Physical Wellness" },
+    { text: "Try a relaxing activity. Explore relaxation or wellness programs or apps, which may incorporate meditation, muscle relaxation, or breathing exercises. Schedule regular times for these and other healthy activities you enjoy, such as listening to music, reading, spending time in nature, and engaging in low-stress hobbies.", category: "Relaxation" },
+    { text: "Set goals and priorities. Decide what must get done now and what can wait. Learn to say 'no' to new tasks if you start to feel like you’re taking on too much. Try to appreciate what you have accomplished at the end of the day.", category: "Focus" },
+    { text: "Practice gratitude. Remind yourself daily of things you are grateful for. Be specific. Write them down or replay them in your mind.", category: "Gratitude" },
+    { text: "Focus on positivity. Identify and challenge your negative and unhelpful thoughts.", category: "Mindset" },
+    { text: "Stay connected. Reach out to friends or family members who can provide emotional support and practical help.", category: "Support" }
   ];
+  
 
   const getRandomTip = () => {
     return tips[Math.floor(Math.random() * tips.length)];
   };
 
   const displayRandomTip = () => {
-    setCurrentTip(getRandomTip());
+    setIsChanging(true);
+    setTimeout(() => {
+      setCurrentTip(getRandomTip());
+      setIsChanging(false);
+    }, 300);
   };
 
   useEffect(() => {
@@ -28,36 +37,45 @@ const DailyTipComponent = () => {
   }, []);
 
   const getBadgeColor = (category) => {
-    switch (category) {
-      case "Stress Relief":
-      case "Focus":
-        return "bg-blue-500 text-white";
-      case "Self-Worth":
-      case "Support":
-        return "bg-purple-500 text-white";
-      case "Gratitude":
-        return "bg-green-500 text-white";
-      case "Physical Wellness":
-        return "bg-yellow-500 text-white";
-      case "Study Habits":
-        return "bg-indigo-500 text-white";
-      default:
-        return "bg-gray-500 text-white";
-    }
+    const colorMap = {
+      "Stress Relief": "bg-blue-500 text-white",
+      "Focus": "bg-indigo-500 text-white",
+      "Self-Worth": "bg-purple-500 text-white",
+      "Support": "bg-rose-500 text-white",
+      "Gratitude": "bg-green-500 text-white",
+      "Physical Wellness": "bg-amber-500 text-white",
+      "Study Habits": "bg-teal-500 text-white"
+    };
+    return colorMap[category] || "bg-gray-500 text-white";
   };
 
   return (
-    <div className="px-6 py-4 rounded-sm shadow-lg text-center">
-      {currentTip ? (
-        <div className="flex items-center justify-center gap-3">
-          <span className={`text-sm font-semibold px-3 py-1 rounded-full ${getBadgeColor(currentTip.category)}`}>
-            {currentTip.category}
-          </span>
-          <p className="text-xl font-medium text-gray-800">{currentTip.text}</p>
-        </div>
-      ) : (
-        <p className="text-lg font-semibold text-gray-700 animate-pulse">Loading tip...</p>
-      )}
+    <div className="bg-white shadow-lg rounded-xl p-6 max-w-3xl mx-auto my-12 relative overflow-hidden">
+      <div className="absolute top-4 right-4 z-10">
+      </div>
+      
+      <div className="flex items-center mb-4">
+        <Lightbulb className="w-8 h-8 text-amber-500 mr-3" />
+        <h3 className="text-2xl font-bold text-gray-800">Daily Wellness Tip</h3>
+      </div>
+
+      <AnimatePresence mode="wait">
+        {currentTip && !isChanging && (
+          <motion.div
+            key={currentTip.text}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
+            className="flex items-center gap-4"
+          >
+            <span className={`text-sm font-semibold px-3 py-1 rounded-full ${getBadgeColor(currentTip.category)}`}>
+              {currentTip.category}
+            </span>
+            <p className="text-lg text-gray-700 flex-grow">{currentTip.text}</p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };

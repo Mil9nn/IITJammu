@@ -2,6 +2,7 @@ import Carousel from '../components/Carousel';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { Calendar, Phone } from 'lucide-react';
 import EventCalendar from "../components/EventCalendar";
+import WellnessChatBot from "../components/WellnessChatbot";
 
 function EnhancedHeroSection () {
   return (
@@ -134,6 +135,7 @@ function EnhancedHeroSection () {
             <EventCalendar />
           </div>
         </div>
+        <WellnessChatBot />
       </div>
     </div>
   );

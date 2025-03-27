@@ -103,7 +103,7 @@ const MentalHealthResources = () => {
   return (
     <div className="min-h-screen">
       {/* Header with gradient background matching Team component */}
-      <header className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 py-16 relative">
+      <header className="bg-gradient-to-r from-rose-50 to-amber-50 py-16 relative">
         {/* Background decorative elements */}
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-amber-200 to-transparent"></div>
         <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-rose-200 to-transparent"></div>
@@ -152,7 +152,7 @@ const MentalHealthResources = () => {
       )}
 
       {/* Tabs navigation - Styled to match the team component */}
-      <nav className="bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 sticky top-0">
+      <nav className="bg-gradient-to-r from-rose-50 to-amber-50 sticky top-0">
         <div className="max-w-6xl mx-auto overflow-x-auto">
           <div className="flex space-x-1 p-2 min-w-max">
             {Object.entries(tabData).map(([key, data]) => (

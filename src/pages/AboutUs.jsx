@@ -3,6 +3,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Testimonials from '../components/Testimonials';
 import CompactFooter from "../components/CompactFooter";
+import DailyTipComponent from "../components/DailyTipComponent";
 
 function AboutUs() {
 
@@ -68,7 +69,7 @@ function AboutUs() {
           </div>
         </div>
       </div>
-
+      <DailyTipComponent/>
       {/* Services Provided */}
       <div className="services py-12 px-4 bg-gradient-to-b from-[#f3f4f6] to-white relative overflow-hidden">
         {/* Background decorative elements */}

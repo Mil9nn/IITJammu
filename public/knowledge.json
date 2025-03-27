@@ -1,0 +1,77 @@
+{
+    "knowledgeBase": {
+      "appointment": {
+        "responses": [
+          "You can book an appointment by visiting our portal in Appointments section."
+        ],
+        "followUps": ["appointment types", "appointment availability"],
+        "entities": ["service", "date", "time"]
+      },
+      "counseling": {
+        "responses": [
+          "IIT Jammu offers confidential counseling services for all students and staff. Our counselors are available Monday to Friday, 9:30 AM to 5 PM.",
+          "Our counseling services include stress management, academic pressure, personal issues, and mental health support. Visit About page to learn more"
+        ],
+        "followUps": ["counseling types", "counselor profiles", "book counseling session"],
+        "entities": ["counseling type", "counselor"]
+      },
+      "services": {
+        "responses": [
+          "Our wellness center offers: mental health counseling, yoga events, and health awareness programs.",
+          "We provide comprehensive wellness services for the IIT Jammu community. This includes mental health support, academic support."
+        ],
+        "followUps": ["medical services", "mental health services", "physical therapy", "yoga classes"],
+        "entities": ["service type"]
+      },
+      "timings": {
+        "responses": [
+          "The Wellness Center is open Monday to Friday from 9 AM to 5 PM."
+        ],
+        "followUps": ["weekend availability", "holiday schedule"],
+        "entities": ["service", "day"]
+      },
+      "location": {
+        "responses": [
+          "The Wellness Center is located in the Student Activity Center (SAC) building, Ground Floor, near the main cafeteria. You can find us on the campus map available on the IIT Jammu website.",
+          "We're located centrally on campus for easy access. The nearest landmarks are the main cafeteria and the administrative block."
+        ],
+        "followUps": ["directions", "parking information", "accessibility"],
+        "entities": []
+      },
+      "stress": {
+        "responses": [
+          "We understand academic life can be stressful. Our center offers stress management workshops, one-on-one counseling, and relaxation techniques to help you cope.",
+          "Stress management is a key focus area for us. We recommend our mindfulness sessions, brief daily meditation practices, and regular physical activity to manage stress effectively."
+        ],
+        "followUps": ["stress management techniques", "counseling for stress", "stress workshops"],
+        "entities": []
+      }
+    },
+    "intents": {
+      "greeting": ["hello", "hi", "hey", "greetings", "good morning", "good afternoon", "good evening", "howdy"],
+      "farewell": ["bye", "goodbye", "see you", "take care", "farewell", "thanks bye", "ok bye"],
+      "thanks": ["thank you", "thanks", "appreciate it", "thank you so much", "thanks a lot"],
+      "feeling_unwell": ["sick", "unwell", "not feeling well", "ill", "feeling bad", "under the weather", "health issue"],
+      "mental_health": ["depressed", "anxious", "anxiety", "stress", "mental health", "feeling down", "can't cope", "overwhelmed"],
+      "general_info": ["info", "information", "tell me about", "what is", "how does", "details about"],
+      "hours_of_operation": ["when are you open", "opening hours", "closing time", "hours", "timings", "schedule", "when can I visit"]
+    },
+    "conversationFlows": {
+      "book_appointment": {
+        "start": "I'd be happy to help you book an appointment. What type of service are you looking for? We offer medical consultations, counseling, physical therapy, and more.",
+        "steps": ["service", "date", "time", "confirmation"],
+        "current": 0,
+        "responses": {
+          "service": "Great! When would you like to schedule this appointment? (Please specify a date)",
+          "date": "What time would work best for you? We have slots available from 9 AM to 5 PM.",
+          "time": "Perfect! To confirm: You'd like to book an appointment for {service} on {date} at {time}. Is this correct? (Yes/No)",
+          "confirmation": "Your appointment has been scheduled! You'll receive a reminder notification on the day. Is there anything else I can help you with?"
+        }
+      }
+    },
+    "fallbackResponses": [
+      "I'm here to help with information about IIT Jammu's wellness services. You can ask about appointments, counseling, wellness center events, operating hours, or any other wellness-related queries.",
+      "I might not have understood your question correctly. Could you please rephrase it? I can provide information about our wellness center services, timings and more.",
+      "I don't have information on that specific topic. Would you like to know about our services, appointment booking, counseling options, or wellness programs instead?"
+    ]
+  }
