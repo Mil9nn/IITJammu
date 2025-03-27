@@ -7,12 +7,14 @@ import Appointments from "../pages/Appointments";
 import FAQs from "../pages/FAQs";
 import Events from "../pages/Events";
 import Team from "../pages/Team";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
 
   return (
     <>
       <Router>
+        <ScrollToTop/>
         <Header />
         <Routes>
           {/* Home Route */}
