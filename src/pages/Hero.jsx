@@ -4,67 +4,67 @@ import { Calendar, Phone } from 'lucide-react';
 import EventCalendar from "../components/EventCalendar";
 import WellnessChatBot from "../components/WellnessChatbot";
 
-function EnhancedHeroSection () {
+function EnhancedHeroSection() {
   return (
-    <div className="bg-gradient-to-b from-blue-50 to-white">
-      {/* Hero Section */}
-      <div className="relative bg-gradient-to-r from-[#003f87] to-[#39a4cf] text-white py-16 md:py-20">
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col items-center text-center">
-              {/* Logo and Title with better alignment */}
-              <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
-                <div className="bg-white p-2 rounded shadow-lg">
-                  <img
-                    className="w-24 h-24 md:w-28 md:h-28 rounded object-cover"
-                    src="/images/wellness-logo.jpg"
-                    alt="Wellness Centre Logo"
-                  />
-                </div>
-                <h1 className="text-4xl md:text-5xl font-bold">
-                  <span className="block md:text-left">Wellness Center</span>
-                  <span className="block text-blue-200 md:text-left mt-1">IIT Jammu</span>
-                </h1>
+    <div>
+      {/* Hero Section with Background Image */}
+      <div className="relative text-white py-16 md:py-20" 
+           style={{
+             backgroundImage: "url('/images/wellness-bg.png')",
+             backgroundSize: "cover",
+             backgroundPosition: "center",
+             position: "relative"
+           }}>
+        {/* Dark overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-[#00000078] bg-opacity-60"></div>
+        
+        <div className="relative container mx-auto px-4">
+          <div className="flex flex-col items-center text-center">
+            {/* Logo and Title with better alignment */}
+            <div className="flex flex-col md:flex-row items-center gap-6 mb-8">
+              <div className="bg-white p-2 rounded shadow-lg">
+                <img
+                  className="w-24 h-24 md:w-28 md:h-28 rounded object-cover"
+                  src="/images/wellness-logo.jpg"
+                  alt="Wellness Centre Logo"
+                />
               </div>
+              <h1 className="text-4xl md:text-5xl font-bold text-white">
+                <span className="block md:text-left">Wellness Center</span>
+                <span className="block text-blue-400 md:text-left mt-1">IIT Jammu</span>
+              </h1>
+            </div>
 
-              {/* Description with better spacing */}
-              <p className="text-lg md:text-xl text-blue-100 mb-10 max-w-3xl mx-auto leading-relaxed">
-                Our team is committed to providing comprehensive wellness services to support
-                the mental and emotional well-being of our community. Explore our range of
-                services designed to help you thrive.
-              </p>
+            {/* Description with better spacing and improved visibility */}
+            <p className="text-lg md:text-xl text-white mb-10 max-w-3xl mx-auto leading-relaxed font-medium">
+              Our team is committed to providing comprehensive wellness services to support
+              the mental and emotional well-being of our community. Explore our range of
+              services designed to help you thrive.
+            </p>
 
-              {/* Buttons with better styling */}
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link
-                  to="/about-us"
-                  className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full
-                      transition-all duration-300 hover:bg-white/10 transform hover:-translate-y-1"
-                >
-                  Explore Services
-                </Link>
-              </div>
+            {/* Buttons with better styling */}
+            <div className="flex flex-wrap justify-center gap-4">
+              <Link
+                to="/about-us"
+                className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full
+                    transition-all duration-300 hover:bg-blue-700 transform hover:-translate-y-1 shadow-lg"
+              >
+                Explore Services
+              </Link>
             </div>
           </div>
         </div>
-
-        {/* Improved gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#003f87]/80 to-[#39a4cf]/80 opacity-75"></div>
-
-        {/* Decorative elements for visual interest */}
-        <div className="absolute bottom-0 left-0 w-full h-12 bg-white/5"></div>
-        <div className="absolute top-1/2 left-0 w-full h-px bg-white/10"></div>
       </div>
 
       {/* Introduction Section with Improved Layout */}
       <div className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto"> {/* Increased max width for better spacing */}
+          <div className="max-w-5xl mx-auto">
             <div className="border-l-4 border-[#003f87] pl-6 mb-10">
               <h2 className="text-2xl md:text-3xl font-bold text-[#003f87] mb-3">Wellness Center</h2>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12"> {/* Changed to grid with explicit gap */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
               {/* Main content - takes 2/3 of the space on larger screens */}
               <div className="md:col-span-2 text-gray-700 space-y-6">
                 <p className="leading-relaxed">
@@ -79,7 +79,7 @@ function EnhancedHeroSection () {
               </div>
               
               {/* Right side panel - takes 1/3 of the space on larger screens */}
-              <div className="md:col-span-1 flex flex-col gap-8"> {/* Increased gap between elements */}
+              <div className="md:col-span-1 flex flex-col gap-8">
                 {/* Book Appointment Button */}
                 <div className="p-6 rounded-lg">
                   <Link
@@ -97,7 +97,7 @@ function EnhancedHeroSection () {
                   <h3 className="text-lg font-semibold text-[#003f87] mb-4">Emergency Helplines</h3>
                   
                   {/* Telemanas Contact */}
-                  <div className="bg-white p-4 rounded-md shadow-sm border-l-5 border-l-[#003f87] mb-4">
+                  <div className="bg-white p-4 rounded-md shadow-sm border-l-4 border-[#003f87] mb-4">
                     <h4 className="font-semibold text-gray-800 text-sm mb-2">Telemanas</h4>
                     <div className="flex items-center gap-2 text-[#003f87] font-bold">
                       <Phone size={16} className="flex-shrink-0" />
@@ -106,7 +106,7 @@ function EnhancedHeroSection () {
                   </div>
                   
                   {/* iCall Contact */}
-                  <div className="bg-white p-4 rounded-md shadow-sm border-l-5 border-l-[#003f87]">
+                  <div className="bg-white p-4 rounded-md shadow-sm border-l-4 border-[#003f87]">
                     <h4 className="font-semibold text-gray-800 text-sm mb-2">iCall</h4>
                     <div className="flex items-center gap-2 text-[#003f87] font-bold">
                       <Phone size={16} className="flex-shrink-0" />
@@ -135,10 +135,12 @@ function EnhancedHeroSection () {
             <EventCalendar />
           </div>
         </div>
-        <WellnessChatBot />
+        <div className="mt-8">
+          <WellnessChatBot />
+        </div>
       </div>
     </div>
   );
-};
+}
 
 export default EnhancedHeroSection;

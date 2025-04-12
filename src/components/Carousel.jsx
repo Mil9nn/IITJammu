@@ -4,24 +4,14 @@ const Carousel = () => {
   // Sample images for the carousel
   const images = [
     {
-      src: "/images",
-      alt: "Mental Health Quote",
-      caption: "Mental Health Resources",
+      src: "/images/Counselling_banner.jpg",
+      alt: "Wellness Staff",
+      caption: "Our Wellness Team",
     },
     {
-      src: "/api/placeholder/1200/600",
-      alt: "Medical Staff",
-      caption: "Our Healthcare Team",
-    },
-    {
-      src: "/api/placeholder/1200/600",
+      src: "/images/treasure-hunt.jpg",
       alt: "Wellness Workshop",
       caption: "Student Wellness Programs",
-    },
-    {
-      src: "/api/placeholder/1200/600",
-      alt: "Medical Equipment",
-      caption: "State-of-the-art Facilities",
     },
   ];
 
