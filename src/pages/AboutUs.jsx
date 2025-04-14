@@ -123,7 +123,7 @@ function AboutUs() {
             {/* NEW Service 03 - Workshops and Seminars */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg transition duration-300 hover:shadow-xl">
               <div className="h-56 overflow-hidden bg-teal-100">
-                <img className="w-full h-full object-cover" src="/images/workshops-seminars.png" alt="Workshops and Seminars" />
+                <img className="w-full h-full object-cover" src="/images/workshop.jpg" alt="Workshops and Seminars" />
               </div>
               <div className="p-8">
                 <div className="flex items-start mb-6">

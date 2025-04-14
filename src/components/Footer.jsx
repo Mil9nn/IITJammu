@@ -7,7 +7,7 @@ const EnhancedFooter = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold border-b-2 border-blue-500 pb-2 inline-block">Quick Links</h3>
             <ul className="space-y-2">
-              {["Anti-Ragging", ].map((link, index) => (
+              {["Anti-Ragging",].map((link, index) => (
                 <li key={index}>
                   <a href="https://iitjammu.ac.in/anti-ragging" className="text-blue-200 hover:text-white transition-all duration-300 flex items-center group">
                     <span className="transform group-hover:translate-x-1 transition-transform duration-300">&raquo;</span>
@@ -106,15 +106,15 @@ const EnhancedFooter = () => {
             </div>
             <div className="text-sm text-blue-200">
               <p className="mb-2">Indian Institute of Technology Jammu</p>
-                <p>Jagti, NH-44</p>
-                <p>Nagrota, Jammu, 181221</p>
-                <p>Jammu & Kashmir, India</p>
+              <p>Jagti, NH-44</p>
+              <p>Nagrota, Jammu, 181221</p>
+              <p>Jammu & Kashmir, India</p>
+            </div>
+            <div className="mt-8 pt-6 border-t border-blue-700 text-sm text-blue-300">
+              <p>&copy; {new Date().getFullYear()} IIT Jammu. All rights reserved.</p>
             </div>
           </div>
-        </div>
 
-        <div className="mt-8 pt-6 border-t border-blue-700 text-center text-sm text-blue-300">
-          <p>&copy; {new Date().getFullYear()} IIT Jammu. All rights reserved.</p>
         </div>
       </div>
     </footer>
